@@ -4,8 +4,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const partners = [
-  "IBM", "ISRO", "SAC", "Yudiz", "TCS", "ICICI Bank", "Viacom18", "Godrej",
-  "Infosys", "Wipro", "Amazon", "Microsoft"
+  { name: "IBM", logo: "/images/ibm.png" },
+  { name: "ISRO", logo: "/images/isro.png" },
+  { name: "SAC", logo: "/images/sac.png" },
+  { name: "Yudiz", logo: "/images/yudiz.png" },
+  { name: "Coding", logo: "/images/coding.png" },
+  { name: "Dev", logo: "/images/dev.png" },
+  { name: "Aventure", logo: "/images/aventure.png" },
+  { name: "Samy", logo: "/images/samy.png" },
+  { name: "Asian African", logo: "/images/asian-african.png" },
+  { name: "Virtual Height", logo: "/images/virtual-height.png" },
 ];
 
 export default function PartnersMarquee() {
@@ -31,11 +39,13 @@ export default function PartnersMarquee() {
           {[...partners, ...partners].map((partner, index) => (
             <div 
               key={index} 
-              className="mx-8 md:mx-16 flex items-center justify-center min-w-[120px]"
+              className="mx-8 md:mx-16 flex items-center justify-center min-w-[150px]"
             >
-              <span className="text-2xl md:text-3xl font-bold text-gray-300 hover:text-gray-500 transition-colors cursor-default">
-                {partner}
-              </span>
+              <img 
+                src={partner.logo} 
+                alt={partner.name} 
+                className="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100 cursor-pointer" 
+              />
             </div>
           ))}
         </motion.div>

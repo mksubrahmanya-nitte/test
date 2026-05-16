@@ -4,23 +4,49 @@ import React from 'react';
 import { Search, Menu } from 'lucide-react';
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const navLinks = [
     'Programmes', 'Campus', 'Industry Linkage', 'Collaborations', 
     'Discover Us', 'Media', 'Career', 'Contact Us'
   ];
 
   return (
-    <nav className="bg-white w-full z-40 border-b border-gray-200 shadow-sm relative">
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white shadow-md' : 'bg-white/95'
+    }`}>
       <div className="max-w-[1400px] mx-auto px-4 lg:px-8">
-        <div className="flex justify-between items-center h-24">
-          {/* Logo */}
-          <div className="flex-shrink-0 flex items-center h-full py-2">
-            <a href="#" className="h-full flex items-center">
-              <img 
-                src="/images/jg_logo.png" 
-                alt="JG University" 
-                className="h-[80px] w-auto object-contain"
-              />
+        <div className="flex justify-between items-center h-20 relative">
+          {/* Logo Container - Popping out effect */}
+          <div className="flex-shrink-0 flex items-center h-full relative">
+            <a 
+              href="/" 
+              className={`flex items-center gap-4 group transition-all duration-300 origin-top-left ${
+                isScrolled ? 'scale-100 mt-0' : 'scale-[1.8] mt-12 bg-white p-4 rounded-b-3xl shadow-2xl'
+              }`}
+            >
+              <div className="h-12 w-auto transition-all duration-300">
+                <img 
+                  src="/images/logo-animation.svg" 
+                  alt="JG University Brain" 
+                  className="h-full w-auto"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-2xl font-black text-[#c21400] leading-none tracking-tighter">JG</span>
+                <span className="text-[10px] font-bold text-[#d1ad3e] uppercase tracking-[0.2em] leading-tight">University</span>
+                {!isScrolled && (
+                  <span className="text-[6px] font-bold text-gray-500 uppercase tracking-[0.1em] mt-0.5 italic">Excellence by Choice</span>
+                )}
+              </div>
             </a>
           </div>
 

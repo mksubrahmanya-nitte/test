@@ -8,10 +8,12 @@ import PartnersMarquee from '@/components/sections/PartnersMarquee';
 import CampusSection from '@/components/sections/CampusSection';
 import SalientFeatures from '@/components/sections/SalientFeatures';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
+import AdmissionPopup from '@/components/layout/AdmissionPopup';
 
 export default function Home() {
   return (
     <>
+      <AdmissionPopup />
       <HeroSection />
       <AboutSection />
       <ProgrammesSection />

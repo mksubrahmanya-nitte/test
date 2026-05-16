@@ -4,8 +4,15 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
-  { id: 1, src: '/images/slider_1.png', alt: 'Times Education Icons Award' },
-  { id: 2, src: '/images/slider_2.png', alt: 'Students Graduation' },
+  { id: 1, src: '/images/Untitled-3.webp', alt: 'JG University Award' },
+  { id: 2, src: '/images/Untitled-12.webp', alt: 'Campus Life' },
+  { id: 3, src: '/images/Untitled-1.webp', alt: 'Admission Open' },
+  { id: 4, src: '/images/Untitled-2 (2).webp', alt: 'Industry Linkage' },
+  { id: 5, src: '/images/Untitled-4.webp', alt: 'Collaborations' },
+  { id: 6, src: '/images/Untitled-5.webp', alt: 'Discover Us' },
+  { id: 7, src: '/images/Untitled-8.webp', alt: 'Career' },
+  { id: 8, src: '/images/Untitled-9.webp', alt: 'Media' },
+  { id: 9, src: '/images/Untitled-10.webp', alt: 'Contact Us' },
 ];
 
 export default function HeroSection() {

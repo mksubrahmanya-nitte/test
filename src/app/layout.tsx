@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import FloatingWidgets from "@/components/layout/FloatingWidgets";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import AnnouncementBanner from "@/components/layout/AnnouncementBanner";
-import FloatingWidgets from "@/components/layout/FloatingWidgets";
-import AdmissionPopup from "@/components/layout/AdmissionPopup";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -29,7 +27,6 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-sans bg-white text-black relative">
         <FloatingWidgets />
-        <AdmissionPopup />
         <Navbar />
         <main className="flex-grow">
           {children}

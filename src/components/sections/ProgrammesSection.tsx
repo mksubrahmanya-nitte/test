@@ -7,25 +7,25 @@ const programmeCards = [
   {
     title: "UG Programmes",
     color: "bg-[#9370db]", // Lavender/Purple
-    image: "https://images.unsplash.com/photo-1523050335456-c38a89b7828a?auto=format&fit=crop&q=80&w=400&h=300",
+    image: "/images/ug-programmes.jpg",
     link: "/bba.html"
   },
   {
     title: "PG Programmes",
     color: "bg-[#ff69b4]", // Pink
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=400&h=300",
+    image: "/images/pg-programmes.jpg",
     link: "/mba.html"
   },
   {
     title: "Doctoral",
     color: "bg-[#800000]", // Maroon
-    image: "https://images.unsplash.com/photo-1521791136064-7986c295944b?auto=format&fit=crop&q=80&w=400&h=300",
+    image: "/images/phd-programmes.jpg",
     link: "/doctoral-programmes.html"
   },
   {
     title: "Certificate Courses",
     color: "bg-[#00ced1]", // Light Blue
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=400&h=300",
+    image: "/images/certificate-courses.jpg",
     link: "/metaverse.html"
   }
 ];
