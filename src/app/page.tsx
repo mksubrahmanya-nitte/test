@@ -1,29 +1,27 @@
 import HeroSection from '@/components/sections/HeroSection';
-import StatsBar from '@/components/sections/StatsBar';
 import AboutSection from '@/components/sections/AboutSection';
-import LeadershipSection from '@/components/sections/LeadershipSection';
-import PartnersMarquee from '@/components/sections/PartnersMarquee';
-import SalientFeatures from '@/components/sections/SalientFeatures';
 import ProgrammesSection from '@/components/sections/ProgrammesSection';
+import OurStrengths from '@/components/sections/OurStrengths';
+import LeadershipSection from '@/components/sections/LeadershipSection';
 import FacultySection from '@/components/sections/FacultySection';
+import PartnersMarquee from '@/components/sections/PartnersMarquee';
 import CampusSection from '@/components/sections/CampusSection';
+import SalientFeatures from '@/components/sections/SalientFeatures';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
-import CtaSection from '@/components/sections/CtaSection';
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <StatsBar />
       <AboutSection />
-      <LeadershipSection />
-      <PartnersMarquee />
-      <SalientFeatures />
       <ProgrammesSection />
+      <OurStrengths />
+      <LeadershipSection />
       <FacultySection />
+      <PartnersMarquee />
       <CampusSection />
+      <SalientFeatures />
       <TestimonialsSection />
-      <CtaSection />
     </>
   );
 }

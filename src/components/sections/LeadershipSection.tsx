@@ -6,18 +6,18 @@ import { X } from 'lucide-react';
 
 const leaders = [
   {
-    name: "Dr. A. K. Smith",
-    role: "President",
+    name: "M.P. Chandran",
+    role: "President, JG University",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400&h=400",
-    bio: "Dr. Smith brings over 30 years of academic excellence and visionary leadership to JG University. His focus on interdisciplinary research and global partnerships has transformed the institution.",
-    fullBio: "Dr. Smith brings over 30 years of academic excellence and visionary leadership to JG University. Previously serving as Dean at a premier global institution, his focus on interdisciplinary research, student-centric learning, and global partnerships has fundamentally transformed the institution. He holds a Ph.D. from Stanford University and has published extensively on educational reform."
+    bio: "M.P Chandran is a postgraduate in management with more than 30 years of experience in senior and board-level positions in public and private sectors in India and abroad.",
+    fullBio: "M.P Chandran is a postgraduate in management with more than 30 years of experience in senior and board-level positions in public and private sectors in India and abroad. He is the Chairperson of the Education Task Force, Gujarat Chamber of Commerce and Industry. He is also the chairman of ASIA Charitable Trust (ACT). ACT owns and successfully runs 3 schools, 17 colleges, and JG University."
   },
   {
-    name: "Prof. Sarah Jenkins",
-    role: "Director-General",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400",
-    bio: "With a strong background in corporate strategy and academic administration, Prof. Jenkins bridges the gap between industry requirements and educational curricula.",
-    fullBio: "With a strong background in corporate strategy and academic administration, Prof. Jenkins bridges the gap between industry requirements and educational curricula. Before joining JG University, she was a senior partner at a top management consulting firm. Her initiatives have led to a 40% increase in campus placements and the establishment of three new centers of excellence."
+    name: "Dr. CA Achyut Dani",
+    role: "Director General, JG University",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400&h=400",
+    bio: "Dr. CA Achyut Dani has more than 21 years of experience and expertise in academics and industry. He holds a doctorate in management and commerce.",
+    fullBio: "Dr. CA Achyut Dani has more than 21 years of experience and expertise in academics and industry. He holds a doctorate in management and commerce and is also a research guide. He has authored Textbooks and Self Study Books on Accountancy for the Gujarat Higher Secondary Education Board and numerous reference books on Financial Reporting, Cost Accounting, and Taxation."
   }
 ];
 

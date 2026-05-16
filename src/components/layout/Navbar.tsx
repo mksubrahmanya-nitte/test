@@ -39,7 +39,10 @@ export default function Navbar() {
 
           {/* Right side actions */}
           <div className="hidden lg:flex items-center space-x-4">
-            <button className="bg-[#f5a623] hover:bg-[#d98c14] text-gray-900 font-bold py-2 px-6 rounded text-sm transition-colors shadow-sm">
+            <button 
+              className="bg-[#f5a623] hover:bg-[#d98c14] text-gray-900 font-bold py-2 px-6 rounded text-sm transition-colors shadow-sm"
+              onClick={() => window.location.href = '/admission-open.html'}
+            >
               Admission
             </button>
             <div className="relative">
