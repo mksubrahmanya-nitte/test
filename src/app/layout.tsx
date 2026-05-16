@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -7,8 +7,8 @@ import AnnouncementBanner from "@/components/layout/AnnouncementBanner";
 import FloatingWidgets from "@/components/layout/FloatingWidgets";
 import AdmissionPopup from "@/components/layout/AdmissionPopup";
 
-const inter = Inter({
-  variable: "--font-inter",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
 });
 
@@ -25,9 +25,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} h-full antialiased scroll-smooth`}
+      className={`${montserrat.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-gray-50 text-gray-900 relative">
+      <body className="min-h-full flex flex-col font-sans bg-white text-black relative">
         <FloatingWidgets />
         <AdmissionPopup />
         <Navbar />

@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f9fafb;
-  --foreground: #111827;
-  --primary: #9B1C1E; /* Crimson/Maroon */
-  --primary-hover: #7A1618;
-  --secondary: #F5A623; /* Gold */
-  --secondary-hover: #D98C14;
+  --background: #ffffff;
+  --foreground: #000000;
+  --primary: #ee2a24; /* Reference Red */
+  --primary-hover: #cc0000;
+  --secondary: #f2a900; /* Reference Gold */
+  --secondary-hover: #d19200;
 }
 
 @theme inline {
@@ -16,7 +16,7 @@
   --color-primary-hover: var(--primary-hover);
   --color-secondary: var(--secondary);
   --color-secondary-hover: var(--secondary-hover);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-montserrat);
 }
 
 body {
