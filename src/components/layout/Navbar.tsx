@@ -383,6 +383,11 @@ export default function Navbar() {
   const [hoverDiscoverMenu, setHoverDiscoverMenu] = useState(false);
   const [discoverOpen, setDiscoverOpen] = useState(false);
 
+  // ??$$$ newer code — Mobile hamburger menu state
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
+  const [mobileSchoolAccordion, setMobileSchoolAccordion] = useState<string | null>(null);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -642,6 +647,17 @@ export default function Navbar() {
           >
             Admission
           </Link>
+
+          {/* ??$$$ newer code — Hamburger button (visible below xl) */}
+          <button
+            className="xl:hidden flex flex-col items-center justify-center w-10 h-10 gap-[5px] cursor-pointer"
+            onClick={() => setMobileOpen(true)}
+            aria-label="Open menu"
+          >
+            <span className="block w-6 h-[2.5px] bg-gray-700 rounded-full" />
+            <span className="block w-6 h-[2.5px] bg-gray-700 rounded-full" />
+            <span className="block w-6 h-[2.5px] bg-gray-700 rounded-full" />
+          </button>
         </div>
 
         {/* ── HIGH FIDELITY PROGRAMMES MEGA MENU ── */}
@@ -723,6 +739,137 @@ export default function Navbar() {
           </div>
         )}
       </div>
+
+      {/* ??$$$ newer code — Mobile navigation drawer */}
+      {mobileOpen && (
+        <div id="mobile-nav-drawer">
+          <div className="drawer-overlay" onClick={() => setMobileOpen(false)} />
+          <div className="drawer-panel">
+            {/* Drawer header */}
+            <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+              <span className="font-bold text-[15px] text-gray-900">Menu</span>
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="w-9 h-9 flex items-center justify-center text-gray-500 hover:text-red-700 text-xl font-bold cursor-pointer"
+                aria-label="Close menu"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Drawer links */}
+            <nav className="flex flex-col py-2">
+              {/* Programmes accordion */}
+              <button
+                className="flex items-center justify-between px-5 py-3.5 text-[14px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors text-left cursor-pointer"
+                onClick={() => setMobileAccordion(mobileAccordion === 'programmes' ? null : 'programmes')}
+              >
+                Programmes
+                <span className={`text-gray-400 transition-transform duration-200 ${mobileAccordion === 'programmes' ? 'rotate-180' : ''}`}>▾</span>
+              </button>
+              {mobileAccordion === 'programmes' && (
+                <div className="bg-gray-50 border-y border-gray-100">
+                  {schoolsData.map((school) => (
+                    <div key={school.name}>
+                      <button
+                        className="flex items-center justify-between w-full px-7 py-3 text-[12.5px] font-bold text-[#0066cc] hover:bg-gray-100 transition-colors text-left cursor-pointer"
+                        onClick={() => setMobileSchoolAccordion(mobileSchoolAccordion === school.name ? null : school.name)}
+                      >
+                        {school.name}
+                        <span className={`text-gray-400 text-[10px] transition-transform duration-200 ${mobileSchoolAccordion === school.name ? 'rotate-180' : ''}`}>▾</span>
+                      </button>
+                      {mobileSchoolAccordion === school.name && (
+                        <div className="bg-white border-t border-gray-50">
+                          {school.courses.map((course, idx) => (
+                            course.href === '#' ? (
+                              <span key={idx} className="block px-10 py-2 text-[12px] text-gray-400">{course.name}</span>
+                            ) : (
+                              <Link
+                                key={idx}
+                                href={course.href}
+                                className="block px-10 py-2 text-[12px] text-gray-700 hover:text-red-700 hover:bg-red-50 transition-colors"
+                                onClick={() => setMobileOpen(false)}
+                              >
+                                {course.name}
+                              </Link>
+                            )
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Simple links */}
+              <Link href="#campus" className="px-5 py-3.5 text-[14px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors" onClick={() => setMobileOpen(false)}>Campus</Link>
+              <Link href="#collaborations" className="px-5 py-3.5 text-[14px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors" onClick={() => setMobileOpen(false)}>Industry Linkage</Link>
+              <Link href="#collaborations" className="px-5 py-3.5 text-[14px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors" onClick={() => setMobileOpen(false)}>Collaborations</Link>
+
+              {/* Discover Us accordion */}
+              <button
+                className="flex items-center justify-between px-5 py-3.5 text-[14px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors text-left cursor-pointer"
+                onClick={() => setMobileAccordion(mobileAccordion === 'discover' ? null : 'discover')}
+              >
+                Discover Us
+                <span className={`text-gray-400 transition-transform duration-200 ${mobileAccordion === 'discover' ? 'rotate-180' : ''}`}>▾</span>
+              </button>
+              {mobileAccordion === 'discover' && (
+                <div className="bg-gray-50 border-y border-gray-100">
+                  {[...discoverCol1, ...discoverCol2].map((item, idx) => (
+                    <Link
+                      key={idx}
+                      href={`/${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                      className="block px-7 py-2.5 text-[13px] text-gray-700 hover:text-red-700 hover:bg-red-50 transition-colors font-medium"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {item}
+                    </Link>
+                  ))}
+                </div>
+              )}
+
+              {/* Media accordion */}
+              <button
+                className="flex items-center justify-between px-5 py-3.5 text-[14px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors text-left cursor-pointer"
+                onClick={() => setMobileAccordion(mobileAccordion === 'media' ? null : 'media')}
+              >
+                Media
+                <span className={`text-gray-400 transition-transform duration-200 ${mobileAccordion === 'media' ? 'rotate-180' : ''}`}>▾</span>
+              </button>
+              {mobileAccordion === 'media' && (
+                <div className="bg-gray-50 border-y border-gray-100">
+                  {mediaItems.map((item, idx) => (
+                    <Link
+                      key={idx}
+                      href={`/${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                      className="block px-7 py-2.5 text-[13px] text-gray-700 hover:text-red-700 hover:bg-red-50 transition-colors font-medium"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {item}
+                    </Link>
+                  ))}
+                </div>
+              )}
+
+              <Link href="#" className="px-5 py-3.5 text-[14px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors" onClick={() => setMobileOpen(false)}>Career</Link>
+              <Link href="#contact" className="px-5 py-3.5 text-[14px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors" onClick={() => setMobileOpen(false)}>Contact Us</Link>
+            </nav>
+
+            {/* Drawer bottom CTA */}
+            <div className="px-5 py-4 border-t border-gray-100 mt-auto">
+              <Link
+                href="/admission-open"
+                className="block w-full py-3 rounded-lg text-white text-[14px] font-bold tracking-wider text-center"
+                style={{ backgroundColor: "#f5b041" }}
+                onClick={() => setMobileOpen(false)}
+              >
+                Admission
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

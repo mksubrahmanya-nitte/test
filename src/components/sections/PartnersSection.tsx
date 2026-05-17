@@ -15,8 +15,15 @@ export default function PartnersSection() {
     <section className="py-8 px-4 max-w-7xl mx-auto" id="partners">
       <div className="flex items-center justify-center gap-10 flex-wrap">
         {partners.map((p) => (
-          <div key={p.name} className="grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100 flex items-center justify-center h-12 w-28">
-            <img src={p.logo} alt={p.name} className="max-h-10 max-w-full object-contain" />
+          <div
+            key={p.name}
+            className="grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100 flex items-center justify-center h-[67px] w-[157px]"
+          >
+            <img
+              src={p.logo}
+              alt={p.name}
+              className="max-h-[56px] max-w-full object-contain"
+            />
           </div>
         ))}
       </div>

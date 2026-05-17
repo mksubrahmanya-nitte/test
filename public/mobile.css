@@ -1,0 +1,175 @@
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden !important;
+  }
+
+  /* ??$$$ newer code — Logo always contracted on mobile */
+  header a[href="/"] {
+    width: 90px !important;
+    height: 48px !important;
+    top: 8px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    left: 12px !important;
+  }
+
+  /* ??$$$ newer code — Logo spacer smaller on mobile */
+  header a[href="/"] + div {
+    width: 100px !important;
+  }
+
+  /* ??$$$ newer code — Mobile hamburger drawer */
+  #mobile-nav-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 200;
+  }
+
+  #mobile-nav-drawer .drawer-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  #mobile-nav-drawer .drawer-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 85vw;
+    max-width: 360px;
+    height: 100vh;
+    background: #fff;
+    overflow-y: auto;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+    animation: drawer-slide-in 0.25s ease-out;
+  }
+
+  @keyframes drawer-slide-in {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  button, a {
+    min-height: 44px;
+  }
+
+  .fixed.z-50 {
+    display: none !important;
+  }
+
+  main > section:first-of-type {
+    height: 380px !important;
+  }
+  
+  main > section:first-of-type h1 {
+    font-size: 1.875rem !important;
+    line-height: 2.25rem !important;
+  }
+
+  #programmes .grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  #faculty .flex {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  #faculty .flex-row {
+    flex-direction: row !important;
+  }
+
+  #campus .grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  #campus .flex {
+    gap: 16px !important;
+  }
+
+  #discover .grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  #discover .flex-col.sm\:flex-row {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  #discover .w-full.sm\:w-\[300px\] {
+    width: 100% !important;
+    height: 220px !important;
+  }
+
+  #discover h2 + div {
+    gap: 32px !important;
+  }
+
+  #discover h2 + div > div {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  #discover h2 + div > div:nth-child(even) {
+    flex-direction: column !important;
+  }
+
+  #discover h2 + div > div > div:first-child {
+    text-align: center !important;
+  }
+
+  #discover h2 + div > div > div.text-justify {
+    text-align: center !important;
+  }
+
+  #discover h2 + div > div > div:last-child {
+    width: 100% !important;
+    max-width: 240px !important;
+    margin-top: 16px !important;
+  }
+
+  #features .grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* ??$$$ newer code — Ask JG Chatbot mobile styles */
+  #askjg-chat-window {
+    bottom: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+  }
+
+  /* Phone CTA + ASK JG icon visible on mobile */
+  #phone-cta,
+  #askjg-chat-icon {
+    display: flex !important;
+  }
+
+  /* Smaller bottom-right buttons on mobile to avoid overlap */
+  #phone-cta {
+    right: 12px !important;
+    bottom: 80px !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+}
