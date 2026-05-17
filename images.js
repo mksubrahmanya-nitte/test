@@ -49,23 +49,18 @@ const { chromium } = require("playwright");
         timeout: 120000
       });
 
-      // extra waits
       await page.waitForLoadState("networkidle");
 
-      // allow animations/sliders
       await page.waitForTimeout(5000);
 
-      // trigger lazy loading
       await autoScroll(page);
 
-      // go back top
       await page.evaluate(() => {
         window.scrollTo(0, 0);
       });
 
       await page.waitForTimeout(2000);
 
-      // force all lazy images visible
       await page.evaluate(() => {
 
         document.querySelectorAll("img").forEach(img => {

@@ -35,7 +35,7 @@ export default function PartnersMarquee() {
             duration: 20
           }}
         >
-          {/* Double the array for seamless looping */}
+
           {[...partners, ...partners].map((partner, index) => (
             <div 
               key={index} 

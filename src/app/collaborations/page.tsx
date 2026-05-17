@@ -13,7 +13,7 @@ export default function CollaborationsPage() {
 
   return (
     <main className="min-h-screen bg-white font-sans">
-      {/* Hero Banner */}
+
       <section className="relative h-[290px] w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
@@ -30,7 +30,6 @@ export default function CollaborationsPage() {
         </div>
       </section>
 
-      {/* Main Content Section */}
       <section className="py-16 bg-white">
         <div className="max-w-[1140px] mx-auto px-6">
           <div className="text-center mb-12">
@@ -61,7 +60,6 @@ export default function CollaborationsPage() {
             </div>
           </div>
 
-          {/* Domains Section */}
           <div className="border-t border-gray-100 pt-16">
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-3xl font-extrabold text-black">

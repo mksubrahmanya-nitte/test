@@ -1,20 +1,44 @@
 
 const fs = require('fs');
 const path = require('path');
-const { newsData } = require('./src/data/news.ts'); 
 
-const newsTsContent = fs.readFileSync(path.join(__dirname, 'src', 'data', 'news.ts'), 'utf8');
-const urls = [];
-const regex = /"(images\/.*?)"/g;
-let m;
-while ((m = regex.exec(newsTsContent)) !== null) {
-  urls.push(m[1]);
-}
-
-urls.push('images/news/banner.jpg');
+const urls = [
+  'images/campus-banner.jpg',
+  'images/campus/3.jpg',
+  'images/campus/4.jpg',
+  'images/campus/5.jpg',
+  'images/campus/6.jpg',
+  'images/campus/7.jpg',
+  'images/campus/8.jpg',
+  'images/campus/9.jpg',
+  'images/campus/10.jpg',
+  'images/campus/11.jpg',
+  'images/campus/12.jpg',
+  'images/campus/13.jpg',
+  'images/CRM08261.JPG',
+  'images/CRM08221.JPG',
+  'images/CRM08304.jpg',
+  'images/CRM08212.JPG',
+  'images/CRM08255.JPG',
+  'images/1.png',
+  'images/2.png',
+  'images/3.png',
+  'images/4.png',
+  'images/5.png',
+  'images/7.png',
+  'images/9.png',
+  'images/10.png',
+  'images/lab.png',
+  'images/r&d.png',
+  'images/library.png',
+  'images/wi-fi-campus.png',
+  'images/cinema.png',
+  'images/sports.png',
+  'images/fitness.png'
+];
 
 const uniqueUrls = [...new Set(urls)];
-console.log('Found ' + uniqueUrls.length + ' unique news images to download.');
+console.log('Found ' + uniqueUrls.length + ' unique campus assets to download.');
 
 const dirs = new Set();
 uniqueUrls.forEach(url => {
@@ -35,7 +59,7 @@ async function download(url) {
     
     return;
   }
-  const cleanUrl = url.replace(/ /g, '%20').replace(/\(/g, '%28').replace(/\)/g, '%29');
+  const cleanUrl = url.replace(/ /g, '%20').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/&/g, '%26');
   const source = `https://jguni.in/${cleanUrl}`;
   try {
     const res = await fetch(source);
@@ -52,7 +76,7 @@ async function download(url) {
 }
 
 async function run() {
-  const poolSize = 15;
+  const poolSize = 10;
   const queue = [...uniqueUrls];
   const workers = Array(poolSize).fill(null).map(async () => {
     while (queue.length > 0) {
@@ -61,7 +85,7 @@ async function run() {
     }
   });
   await Promise.all(workers);
-  console.log('All news downloads finished!');
+  console.log('All campus image downloads finished!');
 }
 
 run();

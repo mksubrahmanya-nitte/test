@@ -32,7 +32,7 @@ export default function AdmissionPopup() {
           router.push('/admission-open');
         }}
       >
-        {/* Close Button */}
+
         <button 
           className="absolute top-4 right-4 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-colors z-20"
           onClick={(e) => {
@@ -43,7 +43,6 @@ export default function AdmissionPopup() {
           <X size={20} className="text-gray-900" />
         </button>
 
-        {/* Clickable Image Asset */}
         <img 
           src="/images/26-27-admission.png" 
           alt="Admissions Open 2026-27" 

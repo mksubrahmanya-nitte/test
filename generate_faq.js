@@ -2,7 +2,6 @@ const fs = require('fs');
 
 const html = fs.readFileSync('faq.html', 'utf8');
 
-// A very simple regex parser to extract FAQ categories and items
 const categories = [];
 
 const navItemRegex = /<button class="nav-link[^"]*" id="([^"]+)-tab".*?>([\s\S]*?)<\/button>/g;
@@ -16,23 +15,22 @@ while ((navMatch = navItemRegex.exec(html)) !== null) {
 }
 
 for (const category of categories) {
-  // Find the tab pane
+  
   const paneRegex = new RegExp(`<div class="tab-pane[^"]*" id="${category.id}"[\\s\\S]*?<!-- tab pane end or next tab pane -->`, 'i');
-  // It's easier to just find the content bounded by the pane div
+  
   const paneStartIdx = html.indexOf(`id="${category.id}"`);
   if (paneStartIdx !== -1) {
     let nextPaneStartIdx = html.indexOf('class="tab-pane', paneStartIdx + 1);
     if (nextPaneStartIdx === -1) nextPaneStartIdx = html.length;
     
     const paneHtml = html.substring(paneStartIdx, nextPaneStartIdx);
-    
-    // Extract accordions in this pane
+
     const accRegex = /<button class="accordion-button[^>]*>([\s\S]*?)<\/button>[\s\S]*?<div class="accordion-body">([\s\S]*?)<\/div>/g;
     let accMatch;
     while ((accMatch = accRegex.exec(paneHtml)) !== null) {
       category.items.push({
         question: accMatch[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim(),
-        // Keep the inner HTML of the answer, but clean it slightly
+        
         answer: accMatch[2].trim()
       });
     }

@@ -3,9 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #000000;
-  --primary: #ee2a24; /* Reference Red */
+  --primary: #ee2a24; 
   --primary-hover: #cc0000;
-  --secondary: #f2a900; /* Reference Gold */
+  --secondary: #f2a900; 
   --secondary-hover: #d19200;
 }
 
@@ -24,7 +24,6 @@ body {
   color: var(--foreground);
 }
 
-/* Custom Scrollbar for modern look */
 ::-webkit-scrollbar {
   width: 8px;
 }

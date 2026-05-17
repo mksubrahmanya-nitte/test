@@ -2,7 +2,6 @@ const fs = require('fs');
 
 const html = fs.readFileSync('faculty.html', 'utf8');
 
-// Simple regex extraction since the structure is highly repetitive
 const boxes = html.split('<div class="br-box-l">').slice(1);
 
 const faculty = [];

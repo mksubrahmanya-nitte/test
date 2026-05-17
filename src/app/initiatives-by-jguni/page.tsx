@@ -1,4 +1,4 @@
-// ??$$$
+
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Calendar, ChevronLeft, ChevronRight, X, ZoomIn, ArrowLeft } from 'lucide-react';
 import { initiativesData, Initiative } from '@/data/initiatives';
 
-// ??$$$ - Helper function to extract or guess event year
 const getInitiativeYear = (title: string): string => {
   const lowercase = title.toLowerCase();
   if (lowercase.includes('2024') || lowercase.includes("'24") || lowercase.endsWith(' 24')) {
@@ -16,15 +15,14 @@ const getInitiativeYear = (title: string): string => {
   if (lowercase.includes('2023') || lowercase.includes("'23") || lowercase.endsWith(' 23')) {
     return '2023';
   }
-  // Default fallback
+  
   return '2023';
 };
 
 export default function InitiativesPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedYear, setSelectedYear] = useState<'All' | '2024' | '2023'>('All');
-  
-  // ??$$$ - Lightbox State
+
   const [lightbox, setLightbox] = useState<{
     isOpen: boolean;
     initiativeTitle: string;
@@ -37,7 +35,6 @@ export default function InitiativesPage() {
     currentIndex: 0,
   });
 
-  // ??$$$ - Keyboard listeners for Lightbox navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!lightbox.isOpen) return;
@@ -79,7 +76,6 @@ export default function InitiativesPage() {
     });
   };
 
-  // ??$$$ - Filter the initiatives based on year and search query
   const filteredInitiatives = initiativesData.filter((item) => {
     const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase());
     const year = getInitiativeYear(item.title);
@@ -89,7 +85,7 @@ export default function InitiativesPage() {
 
   return (
     <main className="min-h-screen bg-slate-50 pt-24 pb-16 font-sans">
-      {/* ??$$$ - Hero Section */}
+
       <div className="relative bg-gradient-to-r from-red-800 to-amber-700 py-16 md:py-20 text-white overflow-hidden shadow-lg mb-10">
         <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -106,9 +102,8 @@ export default function InitiativesPage() {
         </div>
       </div>
 
-      {/* ??$$$ - Main Content Container */}
       <div className="max-w-7xl mx-auto px-6">
-        {/* ??$$$ - Search & Filtering Bar */}
+
         <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 mb-10 flex flex-col md:flex-row gap-5 items-center justify-between">
           <div className="relative w-full md:w-96">
             <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
@@ -140,7 +135,6 @@ export default function InitiativesPage() {
           </div>
         </div>
 
-        {/* ??$$$ - Grid List of Initiatives */}
         <div className="space-y-12">
           {filteredInitiatives.length > 0 ? (
             filteredInitiatives.map((item, idx) => {
@@ -154,7 +148,7 @@ export default function InitiativesPage() {
                   transition={{ duration: 0.4 }}
                   className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8"
                 >
-                  {/* ??$$$ - Card Header */}
+
                   <div className="flex flex-wrap items-start justify-between gap-4 mb-6 pb-4 border-b border-slate-100">
                     <h2 className="text-xl md:text-2xl font-bold text-slate-800 leading-snug flex-1">
                       {item.title}
@@ -165,7 +159,6 @@ export default function InitiativesPage() {
                     </span>
                   </div>
 
-                  {/* ??$$$ - Image Gallery Slider Container */}
                   <div className="relative group/slider">
                     <div 
                       id={`slider-${idx}`}
@@ -190,7 +183,6 @@ export default function InitiativesPage() {
                       ))}
                     </div>
 
-                    {/* Navigation Buttons for Slider (Hidden if only 1 image) */}
                     {item.images.length > 1 && (
                       <>
                         <button

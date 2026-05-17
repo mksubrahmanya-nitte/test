@@ -1,4 +1,4 @@
-// ??$$$
+
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FileText, Image as ImageIcon, Send, RefreshCw, CheckCircle2, AlertCircle, ArrowLeft, Upload, Trash2 } from 'lucide-react';
 
 export default function CareerPage() {
-  // ??$$$ - Form fields state
+  
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [contact, setContact] = useState('');
@@ -15,8 +15,7 @@ export default function CareerPage() {
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [picFile, setPicFile] = useState<File | null>(null);
   const [captchaInput, setCaptchaInput] = useState('');
-  
-  // ??$$$ - UI States
+
   const [captchaCode, setCaptchaCode] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -24,7 +23,6 @@ export default function CareerPage() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [picPreviewUrl, setPicPreviewUrl] = useState<string | null>(null);
 
-  // ??$$$ - Captcha Generator
   const generateCaptcha = () => {
     const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjklmnpqrstuvwxyz';
     let code = '';
@@ -46,7 +44,6 @@ export default function CareerPage() {
     generateCaptcha();
   }, []);
 
-  // ??$$$ - Release image preview URL when unmounted
   useEffect(() => {
     return () => {
       if (picPreviewUrl) {
@@ -55,7 +52,6 @@ export default function CareerPage() {
     };
   }, [picPreviewUrl]);
 
-  // ??$$$ - CV drag & drop upload handlers
   const handleCvChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -72,7 +68,6 @@ export default function CareerPage() {
     }
   };
 
-  // ??$$$ - Picture drag & drop upload handlers
   const handlePicChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -91,7 +86,6 @@ export default function CareerPage() {
     }
   };
 
-  // ??$$$ - Reset file inputs
   const removeCv = () => {
     setCvFile(null);
   };
@@ -104,7 +98,6 @@ export default function CareerPage() {
     }
   };
 
-  // ??$$$ - Validation & submission simulation
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors: Record<string, string> = {};
@@ -127,7 +120,7 @@ export default function CareerPage() {
       newErrors.captcha = 'Please Enter Verification Code';
     } else if (captchaInput.trim() !== captchaCode) {
       newErrors.captcha = 'CAPTCHA Code does not match';
-      generateCaptcha(); // Reload captcha on failure
+      generateCaptcha(); 
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -135,18 +128,15 @@ export default function CareerPage() {
       return;
     }
 
-    // ??$$$ - Begin high-fidelity upload progress bar animation
     setIsSubmitting(true);
     setUploadProgress(0);
 
-    // Safely fire Google Analytics event
     if (typeof window !== 'undefined' && (window as any).gtag) {
       try {
         (window as any).gtag('event', 'conversion', { 'send_to': 'AW-978228240/Ocb3CJufhcIDEJCoutID' });
       } catch (err) {}
     }
 
-    // Increment progress counter realistically over 1.8 seconds
     const interval = setInterval(() => {
       setUploadProgress((prev) => {
         if (prev >= 100) {
@@ -184,7 +174,7 @@ export default function CareerPage() {
 
   return (
     <main className="min-h-screen bg-slate-50 pt-24 pb-16 font-sans">
-      {/* ??$$$ - Hero Section */}
+
       <div className="relative h-[280px] md:h-[320px] w-full flex items-center justify-center overflow-hidden shadow-md">
         <div className="absolute inset-0 z-0">
           <img
@@ -209,7 +199,6 @@ export default function CareerPage() {
         </div>
       </div>
 
-      {/* ??$$$ - Main Form Section */}
       <div className="max-w-[850px] mx-auto px-6 mt-16">
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-md">
           <div className="border-l-4 border-red-700 pl-4 mb-8">
@@ -231,7 +220,7 @@ export default function CareerPage() {
                 exit={{ opacity: 0 }}
                 className="space-y-6"
               >
-                {/* Full Name & Email grid */}
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-2 font-sans">Full Name</label>
@@ -278,7 +267,6 @@ export default function CareerPage() {
                   </div>
                 </div>
 
-                {/* Contact Number */}
                 <div>
                   <label className="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-2 font-sans">Contact Number</label>
                   <input
@@ -301,7 +289,6 @@ export default function CareerPage() {
                   )}
                 </div>
 
-                {/* Message */}
                 <div>
                   <label className="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-2 font-sans">Write Your Message</label>
                   <textarea
@@ -324,10 +311,8 @@ export default function CareerPage() {
                   )}
                 </div>
 
-                {/* File Upload Zones (Double Grid) */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  
-                  {/* Dropzone CV (PDF Only) */}
+
                   <div className="space-y-2">
                     <label className="block text-slate-700 text-xs font-bold uppercase tracking-wider font-sans">Upload Your CV (PDF only)</label>
                     <div className={`relative border-2 border-dashed rounded-2xl p-6 transition-all flex flex-col items-center justify-center min-h-[140px] text-center ${
@@ -369,7 +354,6 @@ export default function CareerPage() {
                     )}
                   </div>
 
-                  {/* Dropzone Picture (JPG Only) */}
                   <div className="space-y-2">
                     <label className="block text-slate-700 text-xs font-bold uppercase tracking-wider font-sans">Upload Your Picture (JPG only)</label>
                     <div className={`relative border-2 border-dashed rounded-2xl p-6 transition-all flex flex-col items-center justify-center min-h-[140px] text-center ${
@@ -421,9 +405,8 @@ export default function CareerPage() {
 
                 </div>
 
-                {/* Premium Captcha Box */}
                 <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 flex flex-col md:flex-row md:items-center gap-4">
-                  {/* Stylized glassmorphic CAPTCHA Code display */}
+
                   <div className="flex items-center gap-3">
                     <div
                       className="relative px-5 py-2.5 rounded-xl border border-slate-200 bg-white font-mono font-black text-xl tracking-[6px] select-none text-slate-700 flex items-center justify-center overflow-hidden shadow-inner"
@@ -432,7 +415,7 @@ export default function CareerPage() {
                         backgroundSize: '8px 8px',
                       }}
                     >
-                      {/* Decorative CAPTCHA grid distortion lines */}
+
                       <div className="absolute inset-0 pointer-events-none opacity-20 border-b border-r border-slate-400 flex flex-wrap">
                         <div className="w-1/2 h-1/2 border-t border-l border-slate-400 rotate-3 transform scale-110" />
                         <div className="w-1/2 h-1/2 border-b border-r border-slate-400 -rotate-6 transform scale-110" />
@@ -450,7 +433,6 @@ export default function CareerPage() {
                     </button>
                   </div>
 
-                  {/* Captcha Input field */}
                   <div className="flex-1">
                     <input
                       type="text"
@@ -473,7 +455,6 @@ export default function CareerPage() {
                   </div>
                 </div>
 
-                {/* Submission uploading progress or submit button */}
                 <AnimatePresence mode="wait">
                   {isSubmitting ? (
                     <motion.div
@@ -527,7 +508,6 @@ export default function CareerPage() {
                   </p>
                 </div>
 
-                {/* Uploaded statistics summary card */}
                 <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 text-left text-xs text-slate-600 space-y-3.5 max-w-md mx-auto font-sans shadow-inner">
                   <div className="border-b border-slate-200/60 pb-2 flex items-center justify-between font-bold text-slate-700 uppercase tracking-wide">
                     <span>Summary of details</span>

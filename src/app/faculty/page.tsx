@@ -331,7 +331,7 @@ const facultyData = [
 export default function FacultyPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Banner matching live site */}
+
       <section className="relative h-[290px] w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
@@ -348,7 +348,6 @@ export default function FacultyPage() {
         </div>
       </section>
 
-      {/* List layout matching live site */}
       <section className="py-16 bg-white">
         <div className="max-w-[1140px] mx-auto px-6 space-y-10">
           {facultyData.map((f, idx) => (

@@ -212,5 +212,4 @@ export function getProgrammeData(slug: string): Programme | undefined {
 }
 `;
 
-// Note the regular \n inside the string below instead of \\n
 fs.writeFileSync('src/data/programmes.ts', fileContent + afterBba.join(',\n') + bottomContent);

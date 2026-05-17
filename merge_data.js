@@ -4,9 +4,6 @@ const scrapedData = JSON.parse(fs.readFileSync('./programmes_data.json', 'utf8')
 
 let currentTs = fs.readFileSync('./src/data/programmes.ts', 'utf8');
 
-// We will inject the scraped JSON directly into the file.
-// Wait, the safest way is to generate the entire 'programmes' object as a string.
-
 const BBA_CUSTOM_OBJECT = `
   'bba': {
     slug: 'bba',
@@ -93,7 +90,6 @@ const BBA_CUSTOM_OBJECT = `
   }
 `;
 
-// Build the new programmes object literal
 let newObjectsStr = "";
 for (const slug in scrapedData) {
   if (slug === "bba") continue;

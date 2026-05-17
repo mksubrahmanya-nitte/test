@@ -24,11 +24,10 @@ for (const [step, slug] of Object.entries(stepsMap)) {
   }
   const content = fs.readFileSync(filePath, 'utf8');
 
-  // Split lines
   const lines = content.split('\n').map(l => l.trim());
 
   let title = '';
-  let tagline = 'School of Management'; // Default
+  let tagline = 'School of Management'; 
   if (slug === 'msc-forensic') tagline = 'School of Investigative and Applied Sciences';
   if (slug === 'b-tech') tagline = 'School of Engineering';
   if (slug === 'bca' || slug === 'mca') tagline = 'School of Computing';
@@ -54,13 +53,11 @@ for (const [step, slug] of Object.entries(stepsMap)) {
   let eligibilityReserved = '45%';
   let eligibilityType = 'standard';
 
-  // State machine parsing
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (!line) continue;
     if (line.startsWith('Source:') || line === '---') continue;
 
-    // Check title in Title field or first Heading
     if (line.startsWith('Title:')) {
       const match = line.match(/Title:\s*(.*?)(?:\s*in Ahmedabad|$)/i);
       if (match) title = match[1].trim();
@@ -116,7 +113,6 @@ for (const [step, slug] of Object.entries(stepsMap)) {
       continue;
     }
 
-    // Check for fee paragraph
     if (line.startsWith('### Tuition Fee') || line.startsWith('### Tuition Fee Per Semester')) {
       fees = lines[i + 1] || '';
       i++;
@@ -124,7 +120,7 @@ for (const [step, slug] of Object.entries(stepsMap)) {
     }
 
     if (line.startsWith('###') && currentHeader === '') {
-      // Just some general title or sub-heading
+      
       continue;
     }
 
@@ -136,10 +132,9 @@ for (const [step, slug] of Object.entries(stepsMap)) {
       continue;
     }
 
-    // Accumulate descriptions before any headers
     if (currentHeader === '') {
       if (!line.startsWith('#') && !line.startsWith('###') && !line.startsWith('Title:')) {
-        // If it starts with a rupee sign or FRC, it might be fees
+        
         if (line.includes('₹') || line.includes('FRC')) {
           fees = line;
         } else {
@@ -182,13 +177,11 @@ for (const [step, slug] of Object.entries(stepsMap)) {
     }
   }
 
-  // Set default values if empty
   if (!commencement) commencement = '2024-25 Academic Year';
   if (slug === 'msc-forensic') commencement = '2025-26 Academic Year';
   if (!duration) duration = '2 Years';
   if (!eligibility) eligibility = 'Bachelor\'s Degree';
 
-  // Format specializationsObj
   const specializationsObj = specializations.map((name) => {
     let desc = `Specialization in ${name} with cutting-edge curriculum.`;
     if (name.includes('Aviation')) desc = 'Venture into aviation and logistics management.';
@@ -207,16 +200,14 @@ for (const [step, slug] of Object.entries(stepsMap)) {
     };
   });
 
-  // Format highlightsObj
   const highlightsObj = highlights.map((h) => {
-    // split first word as label
+    
     const words = h.split(' ');
     const label = words[0] || 'Programme';
     const text = h;
     return { label, text };
   });
 
-  // Clean eligibilityText reserved marks
   if (eligibilityText.length === 0) {
     eligibilityText = [
       `The students seeking admission in ${title} shall have passed qualifying examination with required percentage.`,
@@ -224,7 +215,6 @@ for (const [step, slug] of Object.entries(stepsMap)) {
     ];
   }
 
-  // Clean up title
   if (title.includes('JG University')) {
     title = title.split('JG University')[0].replace(/[~|]/g, '').trim();
   }
@@ -254,10 +244,8 @@ for (const [step, slug] of Object.entries(stepsMap)) {
   };
 }
 
-// Print parsed information
 console.log('Successfully parsed program details for keys:', Object.keys(parsedProgrammes));
 
-// Read programmes_data.json, merge and write
 const scrapedData = JSON.parse(fs.readFileSync('./programmes_data.json', 'utf8'));
 for (const [slug, data] of Object.entries(parsedProgrammes)) {
   scrapedData[slug] = { ...scrapedData[slug], ...data };

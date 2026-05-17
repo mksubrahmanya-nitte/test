@@ -1,4 +1,4 @@
-// ??$$$ newer code
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -11,14 +11,12 @@ export default function Splash() {
   const [key, setKey] = useState(0);
 
   useEffect(() => {
-    // Force SVG to restart its animation from frame 0 by remounting it
+    
     setKey(k => k + 1);
     setMounted(true);
     document.body.style.overflow = "hidden";
 
-    // Give SVG time to fully play before fading out
-    // Increase this to match your SVG's total animation duration
-    const ANIMATION_DURATION = 2800; // ms — tune this to your SVG length
+    const ANIMATION_DURATION = 2800; 
     const FADE_DURATION = 600;
 
     const fadeTimer = setTimeout(() => setVisible(false), ANIMATION_DURATION);
@@ -35,7 +33,7 @@ export default function Splash() {
   }, []);
 
   if (!mounted) {
-    // SSR: white overlay, no logo yet — prevents flash
+    
     return (
       <div style={{
         position: "fixed", inset: 0,
@@ -69,7 +67,7 @@ export default function Splash() {
         alignItems: "center",
         justifyContent: "center",
       }}>
-        {/* key prop forces img remount so SVG animation restarts from frame 0 */}
+
         <div style={{ position: "relative", width: "228px", height: "263px" }}>
           <Image
             key={key}

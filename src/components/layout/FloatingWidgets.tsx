@@ -2,18 +2,17 @@
 
 import React from 'react';
 import { Users, Camera, Hash, Briefcase, Play, MessageCircle, Phone } from 'lucide-react';
-// ??$$$ newer code — Ask JG Chatbot integration
+
 import AskJGChatbot from './AskJGChatbot';
 
-/* ??$$$ newer code - using transform:rotate for clean horizontal text rendering */
 export default function FloatingWidgets() {
-  /* Shared styles for the vertical pill tabs */
+  
   const pillBase = "fixed z-50 bg-[#b31b1b] text-white text-[14px] sm:text-[16px] font-medium tracking-wider whitespace-nowrap rounded-full shadow-lg hover:bg-[#8f1515] transition-colors cursor-pointer";
 
   const pillBase1 = "fixed z-50 bg-white text-black text-[14px] sm:text-[16px] font-medium tracking-wider whitespace-nowrap rounded-full shadow-lg hover:bg-gray-100 transition-colors cursor-pointer";
   return (
     <>
-      {/* LEFT - Free Psychometric Test */}
+
       <a
         href="#"
         className={pillBase}
@@ -27,7 +26,6 @@ export default function FloatingWidgets() {
         Free Psychometric Test
       </a>
 
-      {/* ??$$$ newer code - Converted social container to a rotated white pillBase1 matching Free Psychometric Test */}
       <div
         className={`${pillBase1} flex flex-row-reverse items-center gap-2`}
         style={{
@@ -119,7 +117,6 @@ export default function FloatingWidgets() {
         </div>
       </div>
 
-      {/* RIGHT - Apply Now */}
       <a
         href="/admission-open"
         className={pillBase}
@@ -133,7 +130,6 @@ export default function FloatingWidgets() {
         Apply Now
       </a>
 
-      {/* RIGHT - Enquire Now */}
       <a
         href="/admission-open"
         className={pillBase}
@@ -147,24 +143,10 @@ export default function FloatingWidgets() {
         Enquire Now
       </a>
 
-      {/* ??$$$ newer code — Phone call button (z-[60] avoids mobile.css hiding .fixed.z-50) */}
       <a id="phone-cta" href="tel:+917567756758" className="fixed right-5 bottom-[110px] z-[60] w-12 h-12 rounded-full bg-[#00a651] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
         <Phone size={20} fill="currentColor" />
       </a>
-      {/* ??$$$ newer code — old bottom-right container replaced */}
-      {/* <div className="fixed right-4 bottom-10 z-50 flex flex-col items-end gap-4">
-        <a href="#" className="w-12 h-12 rounded-full bg-[#00a651] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
-          <Phone size={20} fill="currentColor" />
-        </a>
-        <a href="#" className="w-14 h-14 rounded-full bg-[#b31b1b] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-lg border-2 border-white relative overflow-hidden">
-           <div className="flex flex-col items-center justify-center leading-none">
-             <span className="text-[10px] font-bold">ASK</span>
-             <span className="text-sm font-black">JG</span>
-           </div>
-        </a>
-      </div> */}
 
-      {/* ??$$$ newer code — Ask JG Chatbot (modular component) */}
       <AskJGChatbot />
     </>
   );

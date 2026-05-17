@@ -4,7 +4,6 @@ const https = require('https');
 
 const data = JSON.parse(fs.readFileSync('extracted_initiatives.json', 'utf8'));
 
-// Extract unique image paths
 const uniqueImages = new Set();
 for (const item of data) {
   for (const img of item.images) {
@@ -15,7 +14,6 @@ for (const item of data) {
 const imagesArray = Array.from(uniqueImages);
 console.log(`Found ${imagesArray.length} unique images referenced in initiatives.`);
 
-// Helper to download a single file
 function downloadFile(url, dest) {
   return new Promise((resolve, reject) => {
     https.get(url, (response) => {

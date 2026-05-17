@@ -1,4 +1,4 @@
-// ??$$$
+
 const fs = require('fs');
 const path = require('path');
 
@@ -45,25 +45,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			 
-			  
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>JG YCF 2.0 - 8th, 10th,11th & 12th September, 2024</h1>
@@ -97,26 +86,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			  
-			
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 		<section class="padding news gray-bg">
       <div class="container">
         <h1>Dr. MP Chandran, President - JG University on Teachers Day - 5th September, 2024</h1>
@@ -129,30 +106,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			  
-			
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>Expert Session on Cyber Security held at JG University - 24th, 29th & 31st August, 2024</h1>
@@ -179,23 +140,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
-	
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>JG University celebrates National Youth Day with tree plantation - 13th & 14th August, 2024</h1>
@@ -215,26 +167,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 		<section class="padding news gray-bg">
       <div class="container">
         <h1>JG University's School of Computing hosts Tech Cast 2.0 - 6th August, 2024</h1>
@@ -254,24 +194,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>National Flag Adoption Day seminar at JG University - 23rd July, 2024</h1>
@@ -291,25 +221,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>B.Tech Programme delivered by IIT-IIM Graduates at JG University - 15th June, 2024</h1>
@@ -322,25 +241,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>Importance of Voting' Seminar held at JG University for its students - 29th April, 2024</h1>
@@ -360,23 +268,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>JG University's Teacher Training Program - 26th April, 2024 </h1>
@@ -389,19 +288,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>JG University at Gandhi Ashram on World Heritage Day - 26th Arpil, 2024</h1>
@@ -421,21 +315,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>JG University Students play new age and traditional games - 19th March, 2024</h1>
@@ -455,20 +342,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>JG University Celebrated Women's Day by listening to Retired Principal of SR Mehta Arts College, Dr. Indira Nityanandam - 9th March, 2024</h1>
@@ -481,23 +362,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>In celebration of International Women's Day, JG University organized a Cyclothon exclusively for girl students - 8th March, 2024</h1>
@@ -517,21 +389,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>iMBA and LL.B. students are the champions of the JG University's Inter College Cricket Tournament - 2nd March, 2024</h1>
@@ -544,24 +409,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>JG University's Inter-College Cricket Tournament - 27th February, 2024</h1>
@@ -574,16 +429,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>JG University's Inter-College Cricket Tournament - 17th February, 2024</h1>
@@ -596,18 +449,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>Road safety and drug awareness rally - 1st February, 2024</h1>
@@ -620,17 +469,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-			 
-           
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>Patangotsav'24 at JG University - 14th January, 2024</h1>
@@ -664,8 +510,7 @@ const htmlContent = `
           </div>
       </div>
   </section>
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>Techno School Summit 2.0 - 5th January, 2024</h1>
@@ -685,9 +530,7 @@ const htmlContent = `
           </div>
       </div>
   </section>
-	
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>JG University turns vibrant with yearend festival - 2nd January, 2024</h1>
@@ -707,8 +550,7 @@ const htmlContent = `
           </div>
       </div>
   </section>
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>Joyous Gathering @JG, welcoming 2024 - 31st December, 2023</h1>
@@ -748,8 +590,7 @@ const htmlContent = `
           </div>
       </div>
   </section>
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>JG University organised a Techno School Summit - 28th December, 2023</h1>
@@ -930,8 +771,7 @@ const htmlContent = `
                </a>
              </div>
             </div>
-           
-            
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
@@ -965,9 +805,7 @@ const htmlContent = `
                </a>
              </div>
             </div>
-            
-           
-            
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
@@ -994,17 +832,14 @@ const htmlContent = `
                </a>
              </div>
             </div>
-            
-           
-            
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           </div>
       </div>
   </section>
-	
-	
+
 	<section class="padding news gray-bg">
       <div class="container">
         <h1>Diwali Fusion Shopping Fest at JG University - 12th November, 2023</h1>
@@ -1017,9 +852,7 @@ const htmlContent = `
                </a>
              </div>
             </div>
-            
-           
-            
+
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
@@ -1624,20 +1457,17 @@ const htmlContent = `
 </html>
 `;
 
-// Regex extraction
 const sectionsRegex = /<section class="padding news(?: gray-bg)?">([\s\S]*?)<\/section>/g;
 const newsItems = [];
 
 let match;
 while ((match = sectionsRegex.exec(htmlContent)) !== null) {
   const sectionContent = match[1];
-  
-  // Extract Title
+
   const titleMatch = sectionContent.match(/<h1>(.*?)<\/h1>/);
   if (!titleMatch) continue;
   const title = titleMatch[1].trim();
-  
-  // Extract Images
+
   const imgRegex = /href="(images\/.*?)"/g;
   const images = [];
   let imgMatch;
@@ -1647,11 +1477,10 @@ while ((match = sectionsRegex.exec(htmlContent)) !== null) {
   
   newsItems.push({
     title,
-    images: [...new Set(images)] // deduplicate
+    images: [...new Set(images)] 
   });
 }
 
-// Generate typescript code content
 const codeContent = `// ??$$$
 export interface NewsItem {
   title: string;

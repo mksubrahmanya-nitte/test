@@ -17,7 +17,6 @@ export default function ProgrammeDetailPage() {
   
   if (!data) return <div className="min-h-screen flex items-center justify-center font-bold text-2xl">Programme not found</div>;
 
-  // Decide hero background based on slug/image
   let heroBg = data.image || "/images/partnership.jpg";
   if (!data.image) {
     if (slug.includes('bba') || slug.includes('bca') || slug.includes('bcom') || slug.includes('b-tech') || slug.includes('imba') || slug.includes('imca')) {
@@ -29,7 +28,7 @@ export default function ProgrammeDetailPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* 1. Header Hero Section (High-Fidelity) */}
+
       <section className="relative h-[290px] w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
@@ -52,10 +51,9 @@ export default function ProgrammeDetailPage() {
         </div>
       </section>
 
-      {/* 2. Key Metrics Grid */}
       <section className="bg-white border-b border-gray-100 py-12 md:py-16">
         <div className="max-w-[1140px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Metric 1: Course Commencement */}
+
           <div className="flex flex-col items-center text-center">
             <div className="w-16 h-16 rounded-full border-[1.5px] border-pink-200 bg-pink-50/30 flex items-center justify-center mb-5">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -67,7 +65,6 @@ export default function ProgrammeDetailPage() {
             <p className="text-[13.5px] font-medium text-gray-500 font-sans">{data.courseCommencement || "Upcoming Academic Year"}</p>
           </div>
 
-          {/* Metric 2: Duration */}
           <div className="flex flex-col items-center text-center">
             <div className="w-16 h-16 rounded-full border-[1.5px] border-purple-200 bg-purple-50/30 flex items-center justify-center mb-5">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -78,7 +75,6 @@ export default function ProgrammeDetailPage() {
             <p className="text-[13.5px] font-medium text-gray-500 font-sans">{data.duration}</p>
           </div>
 
-          {/* Metric 3: Eligibility */}
           <div className="flex flex-col items-center text-center">
             <div className="w-16 h-16 rounded-full border-[1.5px] border-amber-200 bg-amber-50/30 flex items-center justify-center mb-5">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -91,7 +87,6 @@ export default function ProgrammeDetailPage() {
         </div>
       </section>
 
-      {/* 3. Introduction Section */}
       <section className="max-w-[1140px] mx-auto px-6 py-16 md:py-20 bg-white">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
@@ -119,7 +114,6 @@ export default function ProgrammeDetailPage() {
         </div>
       </section>
 
-      {/* 4. Fee Structure Section */}
       <section className="bg-gray-50 py-16 border-y border-gray-100">
         <div className="max-w-[1140px] mx-auto px-6">
           <h2 className="text-2xl md:text-3xl font-extrabold text-black mb-6 font-sans">
@@ -149,7 +143,6 @@ export default function ProgrammeDetailPage() {
         </div>
       </section>
 
-      {/* 5. Eligibility Section Conditional High Fidelity */}
       {(data.eligibilityType === 'split-boxes' || data.eligibilityText) && (
         <section className="max-w-[1140px] mx-auto px-6 py-12 bg-white">
           <h2 className="text-3xl font-bold text-black mb-6 font-sans">
@@ -180,7 +173,6 @@ export default function ProgrammeDetailPage() {
         </section>
       )}
 
-      {/* 6. Specializations / Electives Offered Section */}
       {data.specializationsObj ? (
         <section className="bg-gray-50 py-16 border-y border-gray-100">
           <div className="max-w-[1140px] mx-auto px-6">
@@ -237,7 +229,6 @@ export default function ProgrammeDetailPage() {
         </section>
       )}
 
-      {/* 7. Programme Highlights Section */}
       <section className="max-w-[1140px] mx-auto px-6 py-16 md:py-24 bg-white">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-2xl md:text-3xl font-extrabold text-black mb-4 font-sans">Programme Highlights</h2>
@@ -270,7 +261,6 @@ export default function ProgrammeDetailPage() {
         </div>
       </section>
 
-      {/* 8. Objectives & 9. Outcomes Section */}
       {(data.objectives || data.outcomes) && (
         <section className="bg-gray-50 py-16 border-y border-gray-100">
           <div className="max-w-[1140px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -304,7 +294,6 @@ export default function ProgrammeDetailPage() {
         </section>
       )}
 
-      {/* 10. Advantages Section */}
       {data.advantages && (
         <section className="max-w-[1140px] mx-auto px-6 py-16 md:py-24 bg-white">
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -327,7 +316,6 @@ export default function ProgrammeDetailPage() {
         </section>
       )}
 
-      {/* NEP Exit Options (Generic Fallback if advantages are not present) */}
       {!data.advantages && data.exitOptions && (
         <section className="bg-gray-50 py-16 border-y border-gray-100">
            <div className="max-w-[1140px] mx-auto px-6">
@@ -346,7 +334,6 @@ export default function ProgrammeDetailPage() {
         </section>
       )}
 
-      {/* 11. Admission Process Section */}
       <section className="bg-gray-50 py-16 border-t border-gray-100">
         <div className="max-w-[1140px] mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-extrabold text-black mb-4 font-sans">Admission Process</h2>

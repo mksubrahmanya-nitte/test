@@ -3,7 +3,6 @@
     overflow-x: hidden !important;
   }
 
-  /* ??$$$ newer code — Logo always contracted on mobile */
   header a[href="/"] {
     width: 90px !important;
     height: 48px !important;
@@ -16,12 +15,10 @@
     left: 12px !important;
   }
 
-  /* ??$$$ newer code — Logo spacer smaller on mobile */
   header a[href="/"] + div {
     width: 100px !important;
   }
 
-  /* ??$$$ newer code — Mobile hamburger drawer */
   #mobile-nav-drawer {
     position: fixed;
     top: 0;
@@ -148,7 +145,6 @@
     gap: 12px !important;
   }
 
-  /* ??$$$ newer code — Ask JG Chatbot mobile styles */
   #askjg-chat-window {
     bottom: 0 !important;
     right: 0 !important;
@@ -159,13 +155,11 @@
     border-radius: 0 !important;
   }
 
-  /* Phone CTA + ASK JG icon visible on mobile */
   #phone-cta,
   #askjg-chat-icon {
     display: flex !important;
   }
 
-  /* Smaller bottom-right buttons on mobile to avoid overlap */
   #phone-cta {
     right: 12px !important;
     bottom: 80px !important;

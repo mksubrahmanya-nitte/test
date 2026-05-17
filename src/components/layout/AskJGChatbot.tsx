@@ -2,9 +2,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 
-// ??$$$ newer code — Ask JG Chatbot component (modular, self-contained)
-
-/* ─── Types ─── */
 interface ChatMessage {
   id: string;
   sender: 'bot' | 'user';
@@ -20,9 +17,6 @@ interface LeadForm {
 
 type ChatView = 'init' | 'form' | 'chat';
 
-/* ─── Sub-components ─── */
-
-/** Floating "ASK JG" icon button */
 function ChatIcon({ onClick }: { onClick: () => void }) {
   return (
     <button
@@ -40,7 +34,6 @@ function ChatIcon({ onClick }: { onClick: () => void }) {
   );
 }
 
-/** Chat window header bar */
 function ChatHeader({
   onBack,
   onClose,
@@ -82,12 +75,11 @@ function ChatHeader({
   );
 }
 
-/** Bot avatar icon (small circle with illustration) */
 function BotAvatar() {
   return (
     <div className="w-9 h-9 rounded-full bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center shrink-0 shadow-sm border border-amber-300/50">
       <svg viewBox="0 0 36 36" className="w-7 h-7">
-        {/* Simple counselor/support avatar */}
+
         <circle cx="18" cy="13" r="6" fill="#d97706" />
         <circle cx="18" cy="13" r="5" fill="#fbbf24" />
         <ellipse cx="18" cy="11" rx="5" ry="4" fill="#92400e" />
@@ -101,7 +93,6 @@ function BotAvatar() {
   );
 }
 
-/** Bot message bubble */
 function BotBubble({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-start gap-2.5 mb-4">
@@ -116,7 +107,6 @@ function BotBubble({ children }: { children: React.ReactNode }) {
   );
 }
 
-/** User message bubble */
 function UserBubble({ text }: { text: string }) {
   return (
     <div className="flex justify-end mb-4">
@@ -130,7 +120,6 @@ function UserBubble({ text }: { text: string }) {
   );
 }
 
-/** Lead capture form panel */
 function LeadCaptureForm({
   form,
   onChange,
@@ -157,7 +146,6 @@ function LeadCaptureForm({
           Please help us with your contact details below
         </p>
 
-        {/* Name field */}
         <label className="block mb-1 text-[13px] font-medium text-gray-800">Name*</label>
         <input
           type="text"
@@ -170,7 +158,6 @@ function LeadCaptureForm({
         {errors.name && <p className="text-red-500 text-[11px] mb-2">{errors.name}</p>}
         {!errors.name && <div className="mb-3" />}
 
-        {/* Email field */}
         <label className="block mb-1 text-[13px] font-medium text-gray-800">Email ID*</label>
         <input
           type="email"
@@ -183,7 +170,6 @@ function LeadCaptureForm({
         {errors.email && <p className="text-red-500 text-[11px] mb-2">{errors.email}</p>}
         {!errors.email && <div className="mb-3" />}
 
-        {/* Mobile field */}
         <label className="block mb-1 text-[13px] font-medium text-gray-800">Mobile Number*</label>
         <input
           type="tel"
@@ -197,7 +183,6 @@ function LeadCaptureForm({
         {!errors.mobile && <div className="mb-3" />}
       </div>
 
-      {/* Submit button */}
       <div className="px-4 pb-4">
         <button
           onClick={onSubmit}
@@ -216,7 +201,6 @@ function LeadCaptureForm({
   );
 }
 
-/** Init panel — continue or start new */
 function InitPanel({
   onContinue,
   onNewChat,
@@ -268,7 +252,6 @@ function InitPanel({
   );
 }
 
-/** Chat input bar at the bottom */
 function ChatInputBar({
   value,
   onChange,
@@ -306,7 +289,6 @@ function ChatInputBar({
   );
 }
 
-/** Copyright footer */
 function ChatCopyright() {
   return (
     <div className="text-center py-2 text-[10px] text-gray-400 shrink-0 bg-white" style={{ borderRadius: '0 0 12px 12px' }}>
@@ -322,7 +304,6 @@ function ChatCopyright() {
   );
 }
 
-/* ─── FAQ Knowledge Base for auto-replies ─── */
 const FAQ_RESPONSES: { keywords: string[]; answer: string }[] = [
   {
     keywords: ['admission', 'apply', 'enroll', 'registration'],
@@ -370,8 +351,6 @@ function getBotReply(userMsg: string): string {
   return "Thank you for your message! Our counselor will get back to you shortly. In the meantime, you can call us at +91 7567756758 or explore our website for more information.";
 }
 
-/* ─── Main Chatbot Component ─── */
-
 export default function AskJGChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [view, setView] = useState<ChatView>('init');
@@ -383,12 +362,9 @@ export default function AskJGChatbot() {
   const [leadSubmitted, setLeadSubmitted] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
-
-  /* ── Handlers ── */
 
   const toggleChat = () => {
     setIsOpen((prev) => !prev);
@@ -400,7 +376,7 @@ export default function AskJGChatbot() {
     setForm({ name: '', email: '', mobile: '' });
     setFormErrors({});
     setView('form');
-    // Add welcome message
+    
     setMessages([
       {
         id: 'welcome',
@@ -417,7 +393,7 @@ export default function AskJGChatbot() {
 
   const handleFormChange = (field: keyof LeadForm, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
-    // Clear error on change
+    
     if (formErrors[field]) {
       setFormErrors((prev) => ({ ...prev, [field]: undefined }));
     }
@@ -445,13 +421,11 @@ export default function AskJGChatbot() {
 
     setSubmitting(true);
 
-    // Simulate API call (replace with real ExtraaEdge API later)
     setTimeout(() => {
       setSubmitting(false);
       setLeadSubmitted(true);
       setView('chat');
 
-      // Add confirmation messages
       setMessages((prev) => [
         ...prev,
         {
@@ -484,7 +458,6 @@ export default function AskJGChatbot() {
     setMessages((prev) => [...prev, userMsg]);
     setInputText('');
 
-    // Simulate bot typing delay
     setTimeout(() => {
       const botReply: ChatMessage = {
         id: `bot-${Date.now()}`,
@@ -502,11 +475,9 @@ export default function AskJGChatbot() {
     }
   };
 
-  /* ── Render ── */
-
   return (
     <>
-      {/* Chat window */}
+
       {isOpen && (
         <div
           id="askjg-chat-window"
@@ -523,14 +494,13 @@ export default function AskJGChatbot() {
             animation: 'askjg-slide-up 0.3s ease-out',
           }}
         >
-          {/* Header */}
+
           <ChatHeader
             onBack={handleBack}
             onClose={toggleChat}
             showBack={view !== 'init'}
           />
 
-          {/* Body */}
           <div
             className="flex-1 overflow-y-auto bg-[#f9fafb]"
             style={{ overscrollBehavior: 'contain' }}
@@ -545,13 +515,12 @@ export default function AskJGChatbot() {
 
             {view === 'form' && (
               <div className="p-3">
-                {/* Welcome message */}
+
                 <BotBubble>
                   <p className="mb-1">Greetings from JG University!</p>
                   <p>Let&apos;s start by knowing more about you.</p>
                 </BotBubble>
 
-                {/* Lead form */}
                 <LeadCaptureForm
                   form={form}
                   onChange={handleFormChange}
@@ -583,7 +552,6 @@ export default function AskJGChatbot() {
             )}
           </div>
 
-          {/* Input bar (only in chat view) */}
           {view === 'chat' && (
             <ChatInputBar
               value={inputText}
@@ -592,17 +560,14 @@ export default function AskJGChatbot() {
             />
           )}
 
-          {/* Copyright footer */}
           <ChatCopyright />
         </div>
       )}
 
-      {/* ??$$$ newer code — Floating ASK JG icon button (renders the trigger) */}
       <div className="fixed right-4 bottom-10 z-[9998]">
         <ChatIcon onClick={toggleChat} />
       </div>
 
-      {/* Slide-up animation keyframes */}
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes askjg-slide-up {
           from {
@@ -619,5 +584,4 @@ export default function AskJGChatbot() {
   );
 }
 
-// ??$$$ newer code — Export the ChatIcon separately so FloatingWidgets can use it
 export { ChatIcon };

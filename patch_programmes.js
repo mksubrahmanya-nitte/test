@@ -28,7 +28,6 @@ for (const [step, slug] of Object.entries(slugsMap)) {
   }
   const content = fs.readFileSync(filePath, 'utf8');
 
-  // Split content by headers
   const lines = content.split('\n');
   let currentHeader = '';
   let title = '';
@@ -39,7 +38,6 @@ for (const [step, slug] of Object.entries(slugsMap)) {
     duration: []
   };
 
-  // Extract title first
   const titleMatch = content.match(/# Certificate Course in (.*)/);
   if (titleMatch) {
     title = titleMatch[1].trim();
@@ -68,7 +66,7 @@ for (const [step, slug] of Object.entries(slugsMap)) {
       continue;
     }
 
-    if (line.startsWith('###')) continue; // Skip subheadings to keep content clean
+    if (line.startsWith('###')) continue; 
 
     if (currentHeader === 'desc') {
       sections.desc.push(line);
@@ -81,7 +79,6 @@ for (const [step, slug] of Object.entries(slugsMap)) {
     }
   }
 
-  // Filter out any description paragraph that is just the title
   sections.desc = sections.desc.filter(p => !p.toLowerCase().includes('certificate course') && p.trim().length > 15);
 
   certsData[slug] = {
@@ -97,12 +94,10 @@ for (const [step, slug] of Object.entries(slugsMap)) {
   };
 }
 
-// Read standard generated programmes.ts
 let tsFile = fs.readFileSync('src/data/programmes.ts', 'utf8');
 
-// For each cert, replace the standard JSON block with a beautifully formatted TypeScript block
 for (const [slug, data] of Object.entries(certsData)) {
-  // Regex to match the JSON block for the slug
+  
   const regex = new RegExp(`'${slug}':\\s*\\{[\\s\\S]*?\\n\\s*\\},?`, 'g');
   
   const descStr = '[\n      ' + data.description.map(d => `"${d.replace(/"/g, '\\"')}"`).join(',\n      ') + '\n    ]';
@@ -124,13 +119,6 @@ for (const [slug, data] of Object.entries(certsData)) {
 
   tsFile = tsFile.replace(regex, replacement);
 }
-
-// Add the missing btech-computer-engineering stub
-// We'll place it right before the closing of the programmes object.
-// Wait, the programmes object ends with:
-// };
-// 
-// export const programmeAliases: Record<string, string> = {
 
 const closingPattern = '}\n};\n\nexport const programmeAliases';
 if (tsFile.includes(closingPattern)) {

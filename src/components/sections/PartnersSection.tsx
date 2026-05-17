@@ -1,4 +1,4 @@
-// ??$$$ newer code
+
 import React from 'react';
 
 const partners = [

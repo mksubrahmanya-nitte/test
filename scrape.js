@@ -2,7 +2,7 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 
 const urls = [
-  // UG
+  
   { slug: "bba", url: "https://jguni.in/bba.html" },
   { slug: "imba", url: "https://jguni.in/imba.html" },
   { slug: "ibbambaaht", url: "https://jguni.in/ibbambaaht.html" },
@@ -28,8 +28,7 @@ const urls = [
   { slug: "btech-cse-ai-ml", url: "https://jguni.in/B.Tech%20-%20CSE%20%5BAI%20and%20ML%5D.html" },
   { slug: "btech-cse-big-data", url: "https://jguni.in/B.Tech%20-%20CSE%20%5BBig%20Data%20Analytics%5D.html" },
   { slug: "llb", url: "https://jguni.in/llb.html" },
-  
-  // PG
+
   { slug: "mba", url: "https://jguni.in/mba.html" },
   { slug: "mba-international-trade-finance", url: "https://jguni.in/MBA-Internation-Trade%20&-Finance.html" },
   { slug: "mahtm", url: "https://jguni.in/MAHTM-Aviation-Hospitality-&-Travel-Management.html" },
@@ -39,7 +38,6 @@ const urls = [
   { slug: "msc-forensic", url: "https://jguni.in/msc-forensic.html" },
   { slug: "msc-clinic", url: "https://jguni.in/msc-clinic.html" },
 
-  // Certificates
   { slug: "metaverse", url: "https://jguni.in/metaverse.html" },
   { slug: "data-science-ai-ml", url: "https://jguni.in/data-science-ai-ml-&-deep-learning.html" },
   { slug: "mobile-applications", url: "https://jguni.in/mobile-applications.html" },
@@ -51,7 +49,6 @@ const urls = [
   { slug: "full-stack-architect", url: "https://jguni.in/full-stack-architect.html" },
   { slug: "azure-devops", url: "https://jguni.in/azure-devops.html" },
 
-  // Doctoral
   { slug: "doctoral-programmes", url: "https://jguni.in/doctoral-programmes.html" }
 ];
 
@@ -87,19 +84,16 @@ const urls = [
           if (next && (next.tagName === 'UL' || next.tagName === 'OL')) {
             return Array.from(next.querySelectorAll('li')).map(li => li.innerText.trim()).filter(Boolean);
           }
-          
-          // if it's a div, grab list items from inside it
+
           if (next && next.tagName === 'DIV') {
              const listItems = Array.from(next.querySelectorAll('li')).map(li => li.innerText.trim()).filter(Boolean);
              if (listItems.length > 0) return listItems;
-             
-             // Check if the div contains boxes or cards instead of a traditional list
+
              const innerElements = Array.from(next.children);
              const blockTexts = innerElements.map(el => el.innerText.trim()).filter(text => text.length > 10);
              if (blockTexts.length > 0) return blockTexts.slice(0, 10);
           }
-          
-          // Fallback: look at parent or siblings
+
           if (target && target.parentElement) {
             const ul = target.parentElement.querySelector('ul, ol');
             if (ul) return Array.from(ul.querySelectorAll('li')).map(li => li.innerText.trim()).filter(Boolean);
@@ -116,8 +110,7 @@ const urls = [
         let eligibility = "";
 
         const allElements = Array.from(document.querySelectorAll('*'));
-        
-        // Find Duration
+
         const durationEl = allElements.find(el => el.innerText?.trim() === 'Duration');
         if (durationEl && durationEl.nextElementSibling) {
           duration = durationEl.nextElementSibling.innerText.trim();
@@ -126,18 +119,16 @@ const urls = [
            if (durMatch) duration = durMatch[0];
         }
 
-        // Find Eligibility
         const eligEl = allElements.find(el => el.innerText?.trim() === 'Eligibility');
         if (eligEl && eligEl.nextElementSibling) {
           eligibility = eligEl.nextElementSibling.innerText.trim();
         } else {
-          // find 10+2 or Graduation mentions
+          
           const text = document.body.innerText;
           if (text.includes("10+2")) eligibility = "10+2 from recognized board";
           else if (text.includes("Graduation") || text.includes("Bachelor")) eligibility = "Graduation from recognized university";
         }
 
-        // Find Fees
         const feeMatches = document.body.innerText.match(/₹\s*[\d,]+/g);
         if (feeMatches && feeMatches.length > 0) {
            fees = feeMatches[0] + " per semester";

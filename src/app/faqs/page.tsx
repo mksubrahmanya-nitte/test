@@ -267,7 +267,7 @@ export default function FAQPage() {
 
   return (
     <main className="min-h-screen bg-white font-sans">
-      {/* Hero Banner */}
+
       <section className="relative h-[290px] w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
@@ -287,14 +287,12 @@ export default function FAQPage() {
         </div>
       </section>
 
-      {/* Main Content */}
       <section className="py-16 bg-white">
         <div className="max-w-[1140px] mx-auto px-6">
           <h1 className="text-3xl md:text-4xl font-extrabold text-black mb-10 uppercase">
             Frequently Asked Questions
           </h1>
 
-          {/* Tabs */}
           <div className="flex flex-wrap gap-2 border-b border-gray-200 mb-8">
             {faqData.map((category) => (
               <button
@@ -314,7 +312,6 @@ export default function FAQPage() {
             ))}
           </div>
 
-          {/* Accordion */}
           <div className="w-full">
             {faqData.find(c => c.id === activeTab)?.items.map((item, idx) => (
               <div key={idx} className="border border-gray-200 mb-4 rounded-md overflow-hidden shadow-sm">

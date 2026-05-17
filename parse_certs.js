@@ -20,7 +20,6 @@ for (const [step, slug] of Object.entries(slugsMap)) {
   const filePath = path.join('C:', 'Users', 'User', '.gemini', 'antigravity', 'brain', '66e046d3-fb99-4fb2-a1f8-fd99f58353c4', '.system_generated', 'steps', step, 'content.md');
   const content = fs.readFileSync(filePath, 'utf8');
 
-  // Extract sections
   const sections = content.split('\n# ');
   
   let title = '';
@@ -40,12 +39,11 @@ for (const [step, slug] of Object.entries(slugsMap)) {
     } else if (sec.startsWith('Duration of Course') || sec.startsWith('Duration')) {
       duration = sec.split('\n').slice(1).filter(l => l.trim() && !l.startsWith('#')).join('\\n').replace(/"/g, '\\"');
     } else if (sec.startsWith(title) || (i === 2 && !sec.startsWith('Fee') && !sec.startsWith('Elig'))) {
-      // The second or third section is usually the description. It might start with the title or just be paragraphs.
+      
       description = sec.split('\n').slice(1).filter(l => l.trim() && !l.startsWith('#'));
     }
   }
 
-  // Fallbacks if structure was slightly different
   if (!title) {
      const titleMatch = content.match(/# Certificate Course in (.*)/);
      if (titleMatch) title = titleMatch[1].trim();
@@ -86,8 +84,7 @@ for (const [slug, data] of Object.entries(certs)) {
   },`;
 
   tsFile = tsFile.replace(regex, replacement);
-  
-  // Alternative regex if it's the last item (doesn't have a trailing comma)
+
   const regexLast = new RegExp(`'${slug}':\\s*\\{[\\s\\S]*?\\n  \\}\\n\\};`, 'g');
   tsFile = tsFile.replace(regexLast, replacement.replace('},', '}\n};'));
 }

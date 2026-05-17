@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function OurDnaPage() {
   return (
     <main className="min-h-screen bg-white font-sans">
-      {/* Hero Banner */}
+
       <section className="relative h-[290px] w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
@@ -24,7 +24,6 @@ export default function OurDnaPage() {
         </div>
       </section>
 
-      {/* Our DNA Section */}
       <section className="py-16 bg-white">
         <div className="max-w-[1140px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
@@ -58,7 +57,6 @@ export default function OurDnaPage() {
         </div>
       </section>
 
-      {/* Association of Indian Universities */}
       <section className="py-12 bg-gray-50 border-y border-gray-200">
         <div className="max-w-[1140px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
@@ -84,7 +82,6 @@ export default function OurDnaPage() {
         </div>
       </section>
 
-      {/* ASIA Charitable Trust */}
       <section className="py-16 bg-white">
         <div className="max-w-[1140px] mx-auto px-6">
           <h1 className="text-3xl md:text-4xl font-extrabold text-black mb-6 uppercase">

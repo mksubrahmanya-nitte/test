@@ -4,20 +4,14 @@ import "./globals.css";
 import FloatingWidgets from "@/components/layout/FloatingWidgets";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-// ??$$$ newer code: AnnouncementBanner removed — merged into unified Navbar
-// import AnnouncementBanner from "@/components/layout/AnnouncementBanner";
-// ??$$$ newer code
-import Splash from "@/components/layout/Splash";
 
+import Splash from "@/components/layout/Splash";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
 });
 
-
-
-// ??$$$ newer code - High-fidelity SEO meta tags, Facebook Meta Pixel, and Google Tag Manager
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -43,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${montserrat.variable} h-full antialiased scroll-smooth`}>
       <head>
-        {/* Google Tag Manager */}
+
         <Script id="gtm-script" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -52,7 +46,6 @@ export default function RootLayout({
           })(window,document,'script','dataLayer','GTM-MHTSZRBR');`}
         </Script>
 
-        {/* Meta Pixel Code */}
         <Script id="fb-pixel-script" strategy="afterInteractive">
           {`!function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -65,11 +58,11 @@ export default function RootLayout({
           fbq('init', '176877808507968');
           fbq('track', 'PageView');`}
         </Script>
-        {/* ??$$$ newer code */}
+
         <link rel="stylesheet" href="/mobile.css" media="(max-width: 768px)" />
       </head>
       <body className="min-h-full flex flex-col font-sans bg-white text-black relative">
-        {/* Google Tag Manager (noscript) */}
+
         <noscript>
           <iframe 
             src="https://www.googletagmanager.com/ns.html?id=GTM-MHTSZRBR"
@@ -79,7 +72,6 @@ export default function RootLayout({
           />
         </noscript>
 
-        {/* Meta Pixel Code (noscript) */}
         <noscript>
           <img 
             height="1" 

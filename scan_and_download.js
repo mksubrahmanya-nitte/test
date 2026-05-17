@@ -6,7 +6,6 @@ const SRC_DIR = path.join(__dirname, 'src');
 const PUBLIC_IMG_DIR = path.join(__dirname, 'public', 'images');
 const BASE_URL = 'https://jguni.in';
 
-// Helper to recursively get all files
 function getAllFiles(dirPath, arrayOfFiles) {
   const currentFiles = fs.readdirSync(dirPath);
   arrayOfFiles = arrayOfFiles || [];
@@ -56,7 +55,6 @@ files.forEach(file => {
       }
     }
 
-    // Check for alt
     const altMatch = match[0].match(altRegex);
     if (!altMatch || altMatch[1].trim() === '') {
       missingAlts.push({
@@ -71,7 +69,6 @@ files.forEach(file => {
   while ((match = nextImageRegex.exec(content)) !== null) checkMatch(match, 'Image');
 });
 
-// Remove duplicates from downloads
 const uniqueDownloads = [];
 const seen = new Set();
 downloads.forEach(d => {
@@ -84,7 +81,6 @@ downloads.forEach(d => {
 console.log(`Found ${uniqueDownloads.length} missing images to download.`);
 console.log(`Found ${missingAlts.length} tags with missing or blank alt attributes.`);
 
-// Download function
 function downloadImage(url, dest) {
   return new Promise((resolve, reject) => {
     https.get(url, (response) => {

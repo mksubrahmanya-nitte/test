@@ -1,4 +1,4 @@
-// ??$$$
+
 export interface Initiative {
   title: string;
   images: string[];

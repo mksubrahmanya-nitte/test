@@ -1658,8 +1658,7 @@ export const programmeAliases: Record<string, string> = {
   'imca.html': 'imca',
   'llb.html': 'llb',
   'bcom.html': 'bcom',
-  
-  // Calculated dynamic slug mapping
+
   'bba-bba-hons-': 'bba',
   'integrated-bba-mba': 'ibbamba',
   'integrated-bba-mba-global-business': 'imba',
@@ -1677,7 +1676,6 @@ export const programmeAliases: Record<string, string> = {
   'integrated-bba-mba-international-trade-finance': 'ibbamba',
   'll-b-': 'llb',
 
-  // Postgraduate calculated dynamic slug mapping
   'masters-in-international-trade-finance': 'mba-international-trade-finance',
   'masters-in-aviation-hospitality-travel-management': 'mahtm',
   'm-com-hons-international-accounting-taxation': 'mcom',

@@ -1,4 +1,4 @@
-// ??$$$
+
 'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
@@ -8,12 +8,11 @@ import { Search, Calendar, ChevronLeft, ChevronRight, X, ArrowLeft, ZoomIn } fro
 import { newsData, NewsItem } from '@/data/news';
 
 export default function NewsPage() {
-  // ??$$$ - State variables
+  
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedYear, setSelectedYear] = useState<'All' | '2024' | '2023' | '2022'>('All');
   const [activeImage, setActiveImage] = useState<{ itemIndex: number; imgIndex: number } | null>(null);
 
-  // ??$$$ - Keyboard listener for Lightbox closing/navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!activeImage) return;
@@ -36,23 +35,20 @@ export default function NewsPage() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [activeImage]);
 
-  // ??$$$ - Filter news data based on search and selected year
   const filteredNews = useMemo(() => {
     return newsData.filter((item, index) => {
-      // Extract year from title (e.g., "September, 2024", "December, 2023", "June 6, 2022")
+      
       let matchesYear = true;
       if (selectedYear !== 'All') {
         matchesYear = item.title.includes(selectedYear);
       }
 
-      // Matches search term
       const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase());
 
       return matchesYear && matchesSearch;
     });
   }, [searchQuery, selectedYear]);
 
-  // ??$$$ - Handle Lightbox Navigation
   const showPrevImage = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!activeImage) return;
@@ -71,7 +67,7 @@ export default function NewsPage() {
 
   return (
     <main className="min-h-screen bg-slate-50 pt-24 pb-16 font-sans">
-      {/* ??$$$ - Hero Section */}
+
       <div className="relative h-[280px] md:h-[320px] w-full flex items-center justify-center overflow-hidden shadow-md">
         <div className="absolute inset-0 z-0">
           <img
@@ -99,11 +95,9 @@ export default function NewsPage() {
         </div>
       </div>
 
-      {/* ??$$$ - Controls Container (Search and Filters) */}
       <div className="max-w-7xl mx-auto px-6 mt-12">
         <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm flex flex-col md:flex-row gap-5 items-center justify-between">
-          
-          {/* Year filtering tabs */}
+
           <div className="flex bg-slate-100 p-1.5 rounded-xl gap-1.5 w-full md:w-auto">
             {(['All', '2024', '2023', '2022'] as const).map((year) => (
               <button
@@ -120,7 +114,6 @@ export default function NewsPage() {
             ))}
           </div>
 
-          {/* Search bar */}
           <div className="relative w-full md:max-w-md">
             <span className="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400">
               <Search className="w-4 h-4" />
@@ -137,7 +130,6 @@ export default function NewsPage() {
         </div>
       </div>
 
-      {/* ??$$$ - News Grid Cards */}
       <div className="max-w-7xl mx-auto px-6 mt-10">
         <AnimatePresenceFramer mode="wait">
           {filteredNews.length > 0 ? (
@@ -150,7 +142,7 @@ export default function NewsPage() {
               transition={{ duration: 0.3 }}
             >
               {filteredNews.map((item, itemIndex) => {
-                // Try parsing out date from title
+                
                 const dateMatch = item.title.match(/-\s*(\d+(?:[a-z]{2})?(?:\s*&\s*\d+(?:[a-z]{2})?)?\s*[A-Za-z]+,?\s*\d{4})/i) ||
                                   item.title.match(/-\s*([A-Za-z]+\s*\d{1,2},?\s*\d{4})/i);
                 const dateText = dateMatch ? dateMatch[1] : 'Recent Activity';
@@ -160,7 +152,7 @@ export default function NewsPage() {
                     key={`${item.title}-${itemIndex}`}
                     className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm flex flex-col hover:shadow-md hover:border-slate-200/60 transition-all duration-300 group"
                   >
-                    {/* snap-scroll horizontal gallery wrapper */}
+
                     <div className="relative aspect-[4/3] w-full bg-slate-100 overflow-hidden">
                       <div className="flex w-full h-full overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
                         {item.images.map((imagePath, imgIndex) => (
@@ -183,7 +175,6 @@ export default function NewsPage() {
                         ))}
                       </div>
 
-                      {/* Floating Indicator Dots if multiple photos exist */}
                       {item.images.length > 1 && (
                         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full flex gap-1.5 z-10 pointer-events-none">
                           {item.images.map((_, dotIdx) => (
@@ -192,7 +183,6 @@ export default function NewsPage() {
                         </div>
                       )}
 
-                      {/* Total image counter badge */}
                       {item.images.length > 1 && (
                         <div className="absolute top-4 right-4 bg-red-700/90 text-white font-extrabold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-lg shadow-sm backdrop-blur-sm">
                           {item.images.length} Photos
@@ -200,15 +190,13 @@ export default function NewsPage() {
                       )}
                     </div>
 
-                    {/* Card Content Details */}
                     <div className="p-6 flex flex-col flex-1">
-                      {/* Date Badge wrapper */}
+
                       <div className="flex items-center gap-1.5 text-xs font-bold text-red-700 uppercase tracking-widest mb-3">
                         <Calendar className="w-3.5 h-3.5" />
                         <span>{dateText}</span>
                       </div>
 
-                      {/* Header Title */}
                       <h3 className="text-[15px] font-black text-slate-800 leading-snug group-hover:text-red-700 transition-colors uppercase tracking-wide flex-1 font-sans">
                         {item.title.split(' - ')[0]}
                       </h3>
@@ -235,7 +223,6 @@ export default function NewsPage() {
         </AnimatePresenceFramer>
       </div>
 
-      {/* ??$$$ - Interactive Zoom Lightbox Modal */}
       <AnimatePresenceFramer>
         {activeImage !== null && (() => {
           const currentItem = filteredNews[activeImage.itemIndex];
@@ -250,7 +237,7 @@ export default function NewsPage() {
               exit={{ opacity: 0 }}
               onClick={() => setActiveImage(null)}
             >
-              {/* Floating Controls Header */}
+
               <div className="absolute top-6 left-6 right-6 flex items-center justify-between z-[110]">
                 <div className="text-white max-w-[80%]">
                   <h4 className="text-sm md:text-base font-black truncate uppercase tracking-wider">
@@ -268,10 +255,8 @@ export default function NewsPage() {
                 </button>
               </div>
 
-              {/* Central Active Large Image Container */}
               <div className="relative max-w-5xl w-full h-[65vh] flex items-center justify-center">
-                
-                {/* Previous Image Arrow */}
+
                 {currentItem.images.length > 1 && (
                   <button
                     onClick={showPrevImage}
@@ -281,7 +266,6 @@ export default function NewsPage() {
                   </button>
                 )}
 
-                {/* Animated Image element */}
                 <motionFramer.img
                   key={activePath}
                   src={`/${activePath}`}
@@ -294,7 +278,6 @@ export default function NewsPage() {
                   onClick={(e) => e.stopPropagation()}
                 />
 
-                {/* Next Image Arrow */}
                 {currentItem.images.length > 1 && (
                   <button
                     onClick={showNextImage}
