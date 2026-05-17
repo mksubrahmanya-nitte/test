@@ -113,7 +113,8 @@ export default function Navbar() {
 }
 */
 
-// ??$$$ newer code
+/*
+// Old Navbar code commented out:
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -149,7 +150,7 @@ export default function Navbar() {
         className="max-w-[1440px] mx-auto px-6 h-full flex items-center justify-between relative"
         style={{ overflow: "visible" }}
       >
-        {/* Absolutely positioned Logo Container — hangs as a white card at top, becomes a clean transparent logo on scroll */}
+        // Absolutely positioned Logo Container — hangs as a white card at top, becomes a clean transparent logo on scroll
         <Link 
           href="/" 
           className={`absolute left-6 transition-all duration-300 flex items-center justify-center ${
@@ -175,13 +176,13 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Left Spacer to account for the logo box width */}
+        // Left Spacer to account for the logo box width
         <div 
           className="transition-all duration-300 flex-shrink-0"
           style={{ width: scrolled ? "130px" : "225px" }}
         />
 
-        {/* Central Nav Links — capitalized first letter, medium weight, 13.5px size */}
+        // Central Nav Links — capitalized first letter, medium weight, 13.5px size
         <nav className="hidden xl:flex items-center gap-5">
           {navLinks.map((l) => (
             <a
@@ -192,6 +193,265 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
+        </nav>
+
+        // Right Controls: Search bar + Admission Button
+        <div className="flex items-center gap-4 ml-auto xl:ml-0 flex-shrink-0">
+          // Static Search box next to Admission
+          <div className="relative hidden md:block">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search..."
+              className="border border-gray-300 rounded-lg px-4 py-1.5 text-[13px] w-48 focus:outline-none focus:ring-1 focus:ring-yellow-500 bg-white"
+            />
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </span>
+          </div>
+
+          // Admission CTA — Golden orange `#f5b041` with text "Admission"
+          <Link
+            href="/admission-open"
+            className="px-6 py-2 rounded-lg text-white text-[13.5px] font-bold tracking-wider transition-all hover:brightness-105 whitespace-nowrap shadow-sm text-center"
+            style={{ backgroundColor: "#f5b041" }}
+          >
+            Admission
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
+}
+*/
+
+// ??$$$ newer code
+"use client";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+
+const navLinks = [
+  { label: "Programmes",       href: "#programmes" },
+  { label: "Campus",           href: "#campus" },
+  { label: "Industry Linkage", href: "#collaborations" },
+  { label: "Collaborations",   href: "#collaborations" },
+  { label: "Discover Us",      href: "#discover" },
+  { label: "Media",            href: "#" },
+  { label: "Career",           href: "#" },
+  { label: "Contact Us",       href: "#contact" },
+];
+
+const ugPrograms = [
+  "BBA | BBA (Hons)",
+  "Integrated BBA + MBA",
+  "Integrated BBA + MBA - Global Business",
+  "BBA / BBA (Hons) / iMBA",
+  "B.Com | B.Com (Hons)",
+  "B.Com (Hons) with ACCA",
+  "BCA | BCA (Hons)",
+  "Integrated BSc + MSc (IT)",
+  "Integrated BSc + MSc (IT-Specialization)",
+  "B.Sc. / B.Sc. (Hons) / iMSc",
+  "Integrated BCA + MCA",
+  "B.Tech Programs",
+  "BBA | BBA (Hons) - International Trade & Finance",
+  "Integrated BBA + MBA - Aviation, Hospitality, & Travel Management",
+  "Integrated BBA + MBA - International Trade & Finance",
+  "LL.B.",
+];
+
+const pgPrograms = [
+  "MBA",
+  "Masters in International Trade & Finance",
+  "Masters in Aviation, Hospitality & Travel Management",
+  "M.Com (Hons) - International Accounting & Taxation",
+  "MCA",
+  "MCA - AI / Full Stack Development",
+  "MSc (IT-Specialization)",
+  "MSc",
+  "LL.M.",
+];
+
+const phdPrograms = [
+  "Management",
+  "Commerce",
+  "Computing",
+  "Interdisciplinary",
+  "Law",
+  "Forensic Science",
+];
+
+const resourceItems = [
+  "MBA & MCA JGET Question Bank",
+  "M.Com (Hons) JGET Question Bank",
+  "Ph.D JGET Question Bank",
+];
+
+const mediaItems = [
+  "News",
+  "Student Activities",
+  "Blogs",
+  "Initiatives by JGUNI",
+  "Awards and Recognition",
+];
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  
+  const [hoverTrigger, setHoverTrigger] = useState(false);
+  const [hoverMenu, setHoverMenu] = useState(false);
+  const [programmesOpen, setProgrammesOpen] = useState(false);
+
+  const [hoverMediaTrigger, setHoverMediaTrigger] = useState(false);
+  const [hoverMediaMenu, setHoverMediaMenu] = useState(false);
+  const [mediaOpen, setMediaOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Flawless hover-bridge state machine with 150ms buffer to cross any gaps
+  useEffect(() => {
+    if (hoverTrigger || hoverMenu) {
+      setProgrammesOpen(true);
+    } else {
+      const timer = setTimeout(() => {
+        setProgrammesOpen(false);
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [hoverTrigger, hoverMenu]);
+
+  useEffect(() => {
+    if (hoverMediaTrigger || hoverMediaMenu) {
+      setMediaOpen(true);
+    } else {
+      const timer = setTimeout(() => {
+        setMediaOpen(false);
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [hoverMediaTrigger, hoverMediaMenu]);
+
+  const isLogoMinimized = scrolled || programmesOpen || mediaOpen;
+
+  return (
+    <header 
+      className="sticky top-0 w-full bg-white shadow-sm transition-all duration-300"
+      style={{ height: "70px", zIndex: 100, overflow: "visible" }}
+    >
+      <div 
+        className="max-w-[1440px] mx-auto px-6 h-full flex items-center justify-between relative"
+        style={{ overflow: "visible" }}
+      >
+        {/* Absolutely positioned Logo Container — hangs as a white card at top, becomes a clean transparent logo on scroll or hover popout */}
+        <Link 
+          href="/" 
+          className={`absolute left-6 transition-all duration-300 flex items-center justify-center ${
+            isLogoMinimized 
+              ? "bg-transparent shadow-none border-none p-0" 
+              : "bg-white px-4 pb-4 pt-2 shadow-md rounded-b-xl border-x border-b border-gray-100"
+          }`}
+          style={{
+            zIndex: 110,
+            top: isLogoMinimized ? "7px" : "0",
+            width: isLogoMinimized ? "110px" : "212px",
+            height: isLogoMinimized ? "56px" : "156px",
+          }}
+        >
+          <div className="relative w-full h-full">
+            <Image
+              src="/images/logo.png"
+              alt="JG University"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+        </Link>
+
+        {/* Left Spacer to account for the logo box width (Fixed size to prevent layout shifts and hover flickering) */}
+        <div 
+          className="transition-all duration-300 flex-shrink-0"
+          style={{ width: "225px" }}
+        />
+
+        {/* Central Nav Links — capitalized first letter, medium weight, 13.5px size */}
+        <nav className="hidden xl:flex items-center gap-5">
+          {navLinks.map((l) => {
+            if (l.label === "Programmes") {
+              return (
+                <button
+                  key={l.label}
+                  onMouseEnter={() => setHoverTrigger(true)}
+                  onMouseLeave={() => setHoverTrigger(false)}
+                  onClick={() => setHoverTrigger(!hoverTrigger)}
+                  className={`text-[13.5px] font-semibold tracking-wide whitespace-nowrap focus:outline-none transition-colors programmes-trigger ${
+                    programmesOpen ? "text-red-700" : "text-gray-600 hover:text-red-700"
+                  }`}
+                >
+                  {l.label}
+                </button>
+              );
+            }
+            if (l.label === "Media") {
+              return (
+                <div key={l.label} className="relative">
+                  <button
+                    onMouseEnter={() => setHoverMediaTrigger(true)}
+                    onMouseLeave={() => setHoverMediaTrigger(false)}
+                    onClick={() => setHoverMediaTrigger(!hoverMediaTrigger)}
+                    className={`text-[13.5px] font-semibold tracking-wide whitespace-nowrap focus:outline-none transition-colors media-trigger ${
+                      mediaOpen ? "text-red-700" : "text-gray-600 hover:text-red-700"
+                    }`}
+                  >
+                    {l.label}
+                  </button>
+
+                  {mediaOpen && (
+                    <div
+                      onMouseEnter={() => setHoverMediaMenu(true)}
+                      onMouseLeave={() => setHoverMediaMenu(false)}
+                      className="absolute left-[-20px] top-[44px] bg-white border border-gray-200 shadow-2xl rounded-lg py-3 w-64 mega-menu-container animate-fade-in-down"
+                      style={{ zIndex: 90 }}
+                    >
+                      <div className="flex flex-col">
+                        {mediaItems.map((item, idx) => (
+                          <a
+                            key={idx}
+                            href={`/media/${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                            className="px-6 py-2.5 text-[13px] text-gray-700 hover:text-red-700 hover:bg-gray-50 transition-colors leading-snug tracking-normal border-b border-gray-50 last:border-0 font-medium"
+                            onClick={() => {
+                              setHoverMediaTrigger(false);
+                              setHoverMediaMenu(false);
+                            }}
+                          >
+                            {item}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+            return (
+              <a
+                key={l.label}
+                href={l.href}
+                className="text-[13.5px] font-semibold text-gray-600 hover:text-red-700 transition-colors tracking-wide whitespace-nowrap"
+              >
+                {l.label}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Right Controls: Search bar + Admission Button */}
@@ -221,7 +481,130 @@ export default function Navbar() {
             Admission
           </Link>
         </div>
+
+        {/* ── HIGH FIDELITY PROGRAMMES MEGA MENU ── */}
+        {programmesOpen && (
+          <div 
+            className="absolute left-6 top-[70px] bg-white border border-gray-200 shadow-2xl rounded-b-lg p-8 w-[1020px] max-w-5xl mega-menu-container animate-fade-in-down"
+            style={{ zIndex: 90 }}
+            onMouseEnter={() => setHoverMenu(true)}
+            onMouseLeave={() => setHoverMenu(false)}
+          >
+            <div className="grid grid-cols-3 gap-8">
+              {/* Column 1: Undergraduate Programmes */}
+              <div>
+                <h3 className="text-[14px] font-bold text-[#0066cc] mb-4 border-b pb-2 tracking-wide uppercase">
+                  Undergraduate Programmes
+                </h3>
+                <div className="flex flex-col gap-2">
+                  {ugPrograms.map((item, idx) => (
+                    <a
+                      key={idx}
+                      href={`/programmes/${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                      className="text-[12.5px] text-gray-700 hover:text-red-700 transition-colors leading-snug py-0.5 tracking-normal hover:underline"
+                      onClick={() => {
+                        setHoverTrigger(false);
+                        setHoverMenu(false);
+                      }}
+                    >
+                      {item}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Column 2: Postgraduate & Doctoral Programmes */}
+              <div className="flex flex-col gap-6">
+                <div>
+                  <h3 className="text-[14px] font-bold text-[#0066cc] mb-4 border-b pb-2 tracking-wide uppercase">
+                    Postgraduate Programmes
+                  </h3>
+                  <div className="flex flex-col gap-2">
+                    {pgPrograms.map((item, idx) => (
+                      <a
+                        key={idx}
+                        href={`/programmes/${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                        className="text-[12.5px] text-gray-700 hover:text-red-700 transition-colors leading-snug py-0.5 tracking-normal hover:underline"
+                        onClick={() => {
+                          setHoverTrigger(false);
+                          setHoverMenu(false);
+                        }}
+                      >
+                        {item}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-[14px] font-bold text-[#0066cc] mb-4 border-b pb-2 tracking-wide uppercase">
+                    Doctoral Programmes (Ph.D)
+                  </h3>
+                  <div className="flex flex-col gap-2">
+                    {phdPrograms.map((item, idx) => (
+                      <a
+                        key={idx}
+                        href={`/programmes/phd-${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                        className="text-[12.5px] text-gray-700 hover:text-red-700 transition-colors leading-snug py-0.5 tracking-normal hover:underline"
+                        onClick={() => {
+                          setHoverTrigger(false);
+                          setHoverMenu(false);
+                        }}
+                      >
+                        {item}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Column 3: Resources & NEP 2020 */}
+              <div className="flex flex-col gap-6">
+                <div>
+                  <h3 className="text-[14px] font-bold text-[#0066cc] mb-4 border-b pb-2 tracking-wide uppercase">
+                    Resources
+                  </h3>
+                  <div className="flex flex-col gap-2">
+                    {resourceItems.map((item, idx) => (
+                      <a
+                        key={idx}
+                        href={`/resources/${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                        className="text-[12.5px] text-gray-700 hover:text-red-700 transition-colors leading-snug py-0.5 tracking-normal hover:underline"
+                        onClick={() => {
+                          setHoverTrigger(false);
+                          setHoverMenu(false);
+                        }}
+                      >
+                        {item}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-[14px] font-bold text-[#0066cc] mb-4 border-b pb-2 tracking-wide uppercase">
+                    NEP 2020
+                  </h3>
+                  <div className="flex flex-col gap-2">
+                    {/* Code Of Coduct spelled exactly as in screenshot */}
+                    <a
+                      href="/code-of-conduct"
+                      className="text-[12.5px] text-gray-700 hover:text-red-700 transition-colors leading-snug py-0.5 tracking-normal hover:underline"
+                      onClick={() => {
+                        setHoverTrigger(false);
+                        setHoverMenu(false);
+                      }}
+                    >
+                      Code Of Coduct
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );
 }
+
