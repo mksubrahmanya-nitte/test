@@ -2,387 +2,373 @@
 
 import React from 'react';
 import { useParams } from 'next/navigation';
+import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { CheckCircle2, ArrowRight, BookOpen, GraduationCap, Users, Lightbulb, Landmark, Info, Briefcase, Globe } from 'lucide-react';
+import { CheckCircle2, Info, Briefcase, Globe, Landmark, Cpu, Code } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
-
-// Data mapping for different programmes
-const programmeData: Record<string, any> = {
-  'bba': {
-    title: "BBA / BBA (Hons)",
-    tagline: "Whole Brain Change Makers",
-    duration: "3 / 4 Years",
-    fees: "₹ 40,000/- per semester",
-    eligibility: "10+2 with 45% (Open) / 40% (Reserved)",
-    specializations: ["Business Analytics", "Finance", "HRM", "Marketing", "Entrepreneurship"],
-    highlights: [
-      "NEP 2020 Compliant with multiple exit options",
-      "Course-embedded capstone projects",
-      "Rural Immersion Programme",
-      "Industrial Immersion & Internships"
-    ],
-    exitOptions: [
-      { year: "1 Year", award: "Certificate" },
-      { year: "2 Years", award: "Diploma" },
-      { year: "3 Years", award: "BBA Degree" },
-      { year: "4 Years", award: "BBA (Hons) Degree" }
-    ]
-  },
-  'mba': {
-    title: "MBA",
-    tagline: "Leadership in the Digital Age",
-    duration: "2 Years",
-    fees: "₹ 60,000/- per semester",
-    eligibility: "Graduation with 50% (Open) / 45% (Reserved)",
-    specializations: ["Digital Marketing", "International Business", "Business Intelligence"],
-    highlights: [
-      "Case-study based learning",
-      "Global industry exposure",
-      "Executive mentorship",
-      "Strategic leadership labs"
-    ],
-    exitOptions: [
-      { year: "1 Year", award: "PG Diploma" },
-      { year: "2 Years", award: "MBA Degree" }
-    ]
-  },
-  'metaverse': {
-    title: "Metaverse",
-    tagline: "School of Emerging Technology",
-    duration: "1 - 6 Months",
-    fees: "₹ 10,000 - 60,000/-",
-    eligibility: "Open to Students & Professionals",
-    specializations: ["AR/VR Development", "3D Modeling", "Blockchain Integration"],
-    highlights: [
-      "24/7 Access to JG Cloud Lab",
-      "Project-based immersive learning",
-      "Industry leader collaborations",
-      "Beginner to Expert pathways"
-    ],
-    certificationLevels: [
-      { level: "Bridge Course", duration: "1 Month", fee: "₹ 10,000/-" },
-      { level: "Intermediate", duration: "2 Months", fee: "₹ 40,000/-" },
-      { level: "Expert", duration: "3 Months", fee: "₹ 60,000/-" }
-    ],
-    exitOptions: [
-      { year: "1 Mo", award: "Foundation Cert" },
-      { year: "3 Mo", award: "Intermediate Cert" },
-      { year: "6 Mo", award: "Expert Cert" }
-    ]
-  },
-  'blockchain': {
-    title: "Blockchain Technology",
-    tagline: "Next-Gen Decentralized Web",
-    duration: "3 Months",
-    fees: "₹ 45,000/-",
-    eligibility: "Basic Programming Knowledge",
-    specializations: ["Smart Contracts", "Web3", "DApps"],
-    highlights: [
-      "Hands-on with Ethereum & Solidiity",
-      "Real-world DApp development",
-      "Web3 architectural design"
-    ],
-    exitOptions: [{ year: "3 Months", award: "Certification" }]
-  },
-  'b-tech': {
-    title: "B.Tech CSE (AI & ML)",
-    tagline: "Engineering the Future",
-    duration: "4 Years",
-    fees: "₹ 55,000/- per semester",
-    eligibility: "10+2 with Physics, Maths & Chem/CS",
-    specializations: ["AI & ML", "Cyber Security", "Big Data", "Cloud Computing"],
-    highlights: [
-      "Industry-embedded curriculum",
-      "Focus on practical engineering labs",
-      "Collaboration with Yudiz & IBM"
-    ],
-    exitOptions: [
-      { year: "1 Year", award: "Certificate" },
-      { year: "2 Years", award: "Diploma" },
-      { year: "3 Years", award: "B.Sc. CS" },
-      { year: "4 Years", award: "B.Tech Degree" }
-    ]
-  },
-  'bsc-hons-imsc-forensic-science': {
-    title: "M.Sc. Forensic Science",
-    tagline: "Solving Crimes with Science",
-    duration: "5 Years (Integrated)",
-    fees: "₹ 45,000/- per semester",
-    eligibility: "10+2 Science Stream",
-    specializations: ["Crime Scene Investigation", "Digital Forensics", "Toxicology"],
-    highlights: ["Advanced forensic laboratory", "Internships with investigative agencies", "Integrated 5-year master's pathway"],
-    exitOptions: [{ year: "3 Years", award: "B.Sc. Forensic" }, { year: "5 Years", award: "M.Sc. Forensic" }]
-  },
-  'imba': {
-    title: "Integrated MBA",
-    tagline: "Management Excellence from Day One",
-    duration: "5 Years",
-    fees: "₹ 42,000/- per semester",
-    eligibility: "10+2 with 45%",
-    specializations: ["Marketing", "Finance", "HR", "Digital Business"],
-    highlights: ["Integrated UG+PG curriculum", "Early industry exposure", "Capstone projects in final year"],
-    exitOptions: [{ year: "3 Years", award: "BBA" }, { year: "5 Years", award: "MBA" }]
-  },
-  'imca': {
-    title: "Integrated MCA",
-    tagline: "Computing Power Integrated",
-    duration: "5 Years",
-    fees: "₹ 38,000/- per semester",
-    eligibility: "10+2 with Maths/Stats",
-    specializations: ["Software Engineering", "Cloud Computing", "AI"],
-    highlights: ["Seamless transition to Masters", "Practical coding labs", "Industry internships"],
-    exitOptions: [{ year: "3 Years", award: "BCA" }, { year: "5 Years", award: "MCA" }]
-  },
-  'bcom': {
-    title: "B.Com / B.Com (Hons)",
-    tagline: "Financial Literacy for Leaders",
-    duration: "3 / 4 Years",
-    fees: "₹ 30,000/- per semester",
-    eligibility: "10+2 Commerce/Science",
-    specializations: ["Accounting", "Banking", "Insurance"],
-    highlights: ["Tally & GST Certifications", "Mock Stock Trading", "Industrial Visits"],
-    exitOptions: [{ year: "1 Year", award: "Certificate" }, { year: "3 Years", award: "B.Com" }, { year: "4 Years", award: "B.Com (Hons)" }]
-  },
-  'llb': {
-    title: "LL.B.",
-    tagline: "Justice Through Knowledge",
-    duration: "3 Years",
-    fees: "₹ 45,000/- per semester",
-    eligibility: "Graduation with 45%",
-    specializations: ["Corporate Law", "Criminal Law", "Intellectual Property"],
-    highlights: ["Moot Court practice", "Legal aid clinics", "Internships with top law firms"],
-    exitOptions: [{ year: "3 Years", award: "LL.B. Degree" }]
-  },
-  'digital-marketing': {
-    title: "Digital Marketing",
-    tagline: "Master the Digital Landscape",
-    duration: "3 Months",
-    fees: "₹ 25,000/-",
-    eligibility: "Open to All",
-    specializations: ["SEO", "SEM", "Social Media", "Analytics"],
-    highlights: ["Live project experience", "Google Ads certification prep", "Agency-led workshops"],
-    exitOptions: [{ year: "3 Months", award: "Certification" }]
-  },
-  'cyber-security': {
-    title: "Cyber Security",
-    tagline: "Protecting the Digital Frontier",
-    duration: "4 Months",
-    fees: "₹ 35,000/-",
-    eligibility: "Basic IT Knowledge",
-    specializations: ["Ethical Hacking", "Network Security", "Risk Management"],
-    highlights: ["Red Teaming exercises", "Certified instructor-led", "Vulnerability assessment labs"],
-    exitOptions: [{ year: "4 Months", award: "Certification" }]
-  },
-  'full-stack-architect': {
-    title: "Full Stack Architect",
-    tagline: "Build Scalable Web Solutions",
-    duration: "6 Months",
-    fees: "₹ 50,000/-",
-    eligibility: "Programming Foundation",
-    specializations: ["MERN Stack", "Next.js", "Cloud Deployment"],
-    highlights: ["Architecture-first approach", "End-to-end product builds", "Code review by experts"],
-    exitOptions: [{ year: "6 Months", award: "Certification" }]
-  },
-  'imsc-it': {
-    title: "Integrated M.Sc. IT",
-    tagline: "Technology Synergy",
-    duration: "5 Years",
-    fees: "₹ 40,000/- per semester",
-    eligibility: "10+2 Science/Commerce (Maths)",
-    specializations: ["Software Development", "Data Analytics", "IoT"],
-    highlights: ["Seamless 5-year curriculum", "Project-centric learning", "Focus on emerging tech"],
-    exitOptions: [{ year: "3 Years", award: "B.Sc. IT" }, { year: "5 Years", award: "M.Sc. IT" }]
-  },
-  'mca': {
-    title: "MCA",
-    tagline: "Advanced Computing Professionals",
-    duration: "2 Years",
-    fees: "₹ 45,000/- per semester",
-    eligibility: "BCA/B.Sc. CS/B.Tech",
-    specializations: ["Application Development", "Cloud Systems", "AI & ML"],
-    highlights: ["Advanced software engineering labs", "Industry-ready curriculum", "High placement focus"],
-    exitOptions: [{ year: "2 Years", award: "MCA Degree" }]
-  },
-  'mcom': {
-    title: "M.Com",
-    tagline: "Specialized Financial Masters",
-    duration: "2 Years",
-    fees: "₹ 25,000/- per semester",
-    eligibility: "B.Com Degree",
-    specializations: ["Accountancy", "Business Management"],
-    highlights: ["Advanced financial accounting", "Research methodology focus", "Practical auditing exposure"],
-    exitOptions: [{ year: "2 Years", award: "M.Com Degree" }]
-  }
-};
+import { getProgrammeData } from '@/data/programmes';
 
 export default function ProgrammeDetailPage() {
   const params = useParams();
   const slug = (params.slug as string).replace(/\.html$/, '');
   
-  // Get data or fallback to generic
-  const data = programmeData[slug] || {
-    title: slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
-    tagline: "Innovating for a Better Future",
-    duration: "3 Years",
-    fees: "TBD",
-    eligibility: "10+2 or equivalent",
-    specializations: ["Core Studies"],
-    highlights: ["NEP 2020 Compliant", "Industry-led Curriculum", "Modern Infrastructure"],
-    exitOptions: [{ year: "Final Year", award: "Degree" }]
-  };
+  const data = getProgrammeData(slug);
+  
+  if (!data) return <div className="min-h-screen flex items-center justify-center font-bold text-2xl">Programme not found</div>;
 
-  // Decide hero background based on slug
-  let heroBg = "/images/partnership.jpg";
-  if (slug.includes('bba') || slug.includes('bca') || slug.includes('bcom') || slug.includes('b-tech')) {
-    heroBg = "/images/ug-programmes.jpg";
-  } else if (slug.includes('mba') || slug.includes('mca') || slug.includes('mcom') || slug.includes('msc')) {
-    heroBg = "/images/pg-programmes.jpg";
+  // Decide hero background based on slug/image
+  let heroBg = data.image || "/images/partnership.jpg";
+  if (!data.image) {
+    if (slug.includes('bba') || slug.includes('bca') || slug.includes('bcom') || slug.includes('b-tech') || slug.includes('imba') || slug.includes('imca')) {
+      heroBg = "/images/ug-programmes.jpg";
+    } else if (slug.includes('mba') || slug.includes('mca') || slug.includes('mcom') || slug.includes('msc')) {
+      heroBg = "/images/pg-programmes.jpg";
+    }
   }
 
   return (
     <main className="min-h-screen bg-white">
-      <Navbar />
-
-      {/* Hero Banner */}
-      <section className="bg-primary pt-32 pb-24 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <img src={heroBg} className="w-full h-full object-cover" alt="Background" />
+      {/* 1. Header Hero Section (High-Fidelity) */}
+      <section className="relative h-[290px] w-full flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={heroBg}
+            alt={data.headerSubtitle || data.title}
+            fill
+            className="object-cover object-center brightness-[0.7]"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/25" />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <h1 className="text-4xl md:text-7xl font-black mb-4 uppercase tracking-tighter">{data.title}</h1>
-            <p className="text-xl md:text-3xl text-secondary font-bold tracking-widest uppercase">{data.tagline}</p>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Stats Bar */}
-      <section className="bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Duration</p>
-                <p className="text-lg font-black text-gray-900">{data.duration}</p>
-              </div>
-              <div>
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Fees</p>
-                <p className="text-lg font-black text-primary">{data.fees}</p>
-              </div>
-              <div className="md:col-span-2">
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Eligibility</p>
-                <p className="text-sm font-bold text-gray-700">{data.eligibility}</p>
-              </div>
-           </div>
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center pt-8">
+          <h2 className="text-white text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-3 drop-shadow-lg font-sans">
+            {data.headerSubtitle || data.tagline}
+          </h2>
+          <h1 className="text-white text-4xl md:text-5xl font-extrabold tracking-widest drop-shadow-xl font-sans">
+            {data.title}
+          </h1>
         </div>
       </section>
 
-      {/* Content Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-            
-            <div className="lg:col-span-2">
-              <h2 className="text-3xl font-black text-gray-900 mb-8">Programme Overview</h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-12">
-                The {data.title} at JG University is designed to create "{data.tagline}". Our curriculum is built on NEP 2020 foundations, emphasizing immersive learning and industry readiness.
+      {/* 2. Key Metrics Grid */}
+      <section className="bg-white border-b border-gray-100 py-12 md:py-16">
+        <div className="max-w-[1140px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Metric 1: Course Commencement */}
+          <div className="flex flex-col items-center text-center">
+            <div className="w-16 h-16 rounded-full border-[1.5px] border-pink-200 bg-pink-50/30 flex items-center justify-center mb-5">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+              </svg>
+            </div>
+            <h3 className="text-[15.5px] font-bold text-gray-800 tracking-wide mb-1 font-sans">Course Commencement</h3>
+            <p className="text-[13.5px] font-medium text-gray-500 font-sans">{data.courseCommencement || "Upcoming Academic Year"}</p>
+          </div>
+
+          {/* Metric 2: Duration */}
+          <div className="flex flex-col items-center text-center">
+            <div className="w-16 h-16 rounded-full border-[1.5px] border-purple-200 bg-purple-50/30 flex items-center justify-center mb-5">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="text-[15.5px] font-bold text-gray-800 tracking-wide mb-1 font-sans">Duration</h3>
+            <p className="text-[13.5px] font-medium text-gray-500 font-sans">{data.duration}</p>
+          </div>
+
+          {/* Metric 3: Eligibility */}
+          <div className="flex flex-col items-center text-center">
+            <div className="w-16 h-16 rounded-full border-[1.5px] border-amber-200 bg-amber-50/30 flex items-center justify-center mb-5">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 className="text-[15.5px] font-bold text-gray-800 tracking-wide mb-1 font-sans">Eligibility</h3>
+            <p className="text-[13.5px] font-medium text-gray-500 font-sans">{data.eligibility}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Introduction Section */}
+      <section className="max-w-[1140px] mx-auto px-6 py-16 md:py-20 bg-white">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-7">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-6 font-sans">
+              {data.title}
+            </h2>
+            <div className="space-y-4 text-gray-600 text-[14.5px] leading-relaxed font-sans">
+              {data.description ? (
+                data.description.map((para, i) => (
+                  <p key={i} className={i === data.description!.length - 1 ? "font-semibold text-gray-800" : ""}>{para}</p>
+                ))
+              ) : (
+                <p>The {data.title} at JG University is designed to create "{data.tagline}". Our curriculum is built on NEP 2020 foundations, emphasizing immersive learning and industry readiness.</p>
+              )}
+            </div>
+          </div>
+          <div className="lg:col-span-5 relative h-[300px] md:h-[350px] rounded-xl overflow-hidden shadow-md border border-gray-100">
+            <Image
+              src={heroBg}
+              alt={data.title}
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Fee Structure Section */}
+      <section className="bg-gray-50 py-16 border-y border-gray-100">
+        <div className="max-w-[1140px] mx-auto px-6">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-black mb-6 font-sans">
+            Fee Structure
+          </h2>
+          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-150 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 className="font-extrabold text-gray-800 text-[16px] font-sans">Tuition Fee</h4>
+                <p className="text-[19px] text-red-700 font-extrabold mt-1 font-sans">{data.fees}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 flex-shrink-0">
+              <a 
+                href="/fees-structure.pdf" 
+                className="px-6 py-2.5 rounded-lg bg-red-700 text-white text-[13.5px] font-bold hover:bg-red-800 transition-colors shadow-sm font-sans"
+              >
+                Download Syllabus & Fees PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Eligibility Section Conditional High Fidelity */}
+      {(data.eligibilityType === 'split-boxes' || data.eligibilityText) && (
+        <section className="max-w-[1140px] mx-auto px-6 py-12 bg-white">
+          <h2 className="text-3xl font-bold text-black mb-6 font-sans">
+            Eligibility
+          </h2>
+          {data.eligibilityText && (
+            <div className="space-y-4 text-gray-700 text-[14.5px] leading-relaxed font-sans mb-8">
+              {data.eligibilityText.map((text, i) => (
+                <p key={i}>{text}</p>
+              ))}
+            </div>
+          )}
+
+          {data.eligibilityType === 'split-boxes' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
+              <div className="border border-sky-300/80 rounded-lg py-4 px-6 flex items-center justify-center bg-white shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-all hover:border-sky-400">
+                <span className="text-[14px] text-gray-800 font-sans text-center">
+                  For open category candidates <strong className="font-extrabold text-black ml-1 font-sans">{data.eligibilityOpen || "50%"}</strong>
+                </span>
+              </div>
+              <div className="border border-sky-300/80 rounded-lg py-4 px-6 flex items-center justify-center bg-white shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-all hover:border-sky-400">
+                <span className="text-[14px] text-gray-800 font-sans text-center">
+                  For reserved category candidates <strong className="font-extrabold text-black ml-1 font-sans">{data.eligibilityReserved || "45%"}</strong>
+                </span>
+              </div>
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* 6. Specializations / Electives Offered Section */}
+      {data.specializationsObj ? (
+        <section className="bg-gray-50 py-16 border-y border-gray-100">
+          <div className="max-w-[1140px] mx-auto px-6">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-black mb-4 font-sans">Specialization / Electives Offered</h2>
+              <p className="text-[14px] text-gray-500 font-semibold leading-relaxed font-sans">
+                Curate your learning path under our premium active specializations.
               </p>
+            </div>
 
-              {/* NEP Exit Options */}
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-10">
+              {data.specializationsObj.map((spec, idx) => (
+                <div 
+                  key={idx} 
+                  className={`p-6 rounded-xl shadow-sm border border-gray-150 transition-all duration-300 hover:shadow-md hover:-translate-y-1 bg-white`}
+                >
+                  <div className={`w-10 h-10 rounded-xl ${spec.iconBg || 'bg-gray-50'} ${spec.iconColor || 'text-gray-600'} flex items-center justify-center mb-4 flex-shrink-0`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <h4 className="font-extrabold text-[15px] text-gray-800 mb-2 leading-snug font-sans">{spec.name}</h4>
+                  <p className="text-[12.5px] text-gray-500 font-medium leading-relaxed font-sans">{spec.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            {data.specializationNote && (
+              <div className="bg-white p-6 rounded-xl border border-gray-200">
+                <h4 className="font-extrabold text-red-700 text-[14px] uppercase tracking-wider mb-4 font-sans">Important note :</h4>
+                <ol className="space-y-3 text-[13px] text-gray-500 font-medium list-decimal pl-4 leading-relaxed font-sans">
+                  {data.specializationNote.map((note, i) => (
+                    <li key={i}>{note}</li>
+                  ))}
+                </ol>
+              </div>
+            )}
+          </div>
+        </section>
+      ) : data.specializationsStr && (
+        <section className="bg-gray-50 py-16 border-y border-gray-100">
+          <div className="max-w-[1140px] mx-auto px-6">
+            <h3 className="text-2xl font-extrabold text-gray-900 mb-6 flex items-center gap-2">
+              <Briefcase size={24} className="text-secondary" /> Areas of Focus
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {data.specializationsStr.map((spec, i) => (
+                <span key={i} className="px-6 py-2 bg-primary/5 text-primary rounded-full font-bold text-sm border border-primary/10">
+                  {spec}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 7. Programme Highlights Section */}
+      <section className="max-w-[1140px] mx-auto px-6 py-16 md:py-24 bg-white">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-black mb-4 font-sans">Programme Highlights</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {data.highlightsObj ? data.highlightsObj.map((h, idx) => (
+            <div key={idx} className="flex gap-4 p-5 rounded-xl border border-gray-150 bg-white shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0 mt-0.5 text-red-600 font-bold text-[12px] uppercase">
+                {h.label[0]}
+              </div>
+              <div className="flex-grow">
+                <h4 className="font-extrabold text-gray-800 text-[14px] mb-1 capitalize font-sans">{h.label}</h4>
+                <p className="text-[13.5px] text-gray-600 leading-relaxed font-medium font-sans">{h.text}</p>
+                {h.exitDetails && (
+                  <ul className="mt-3 grid grid-cols-2 gap-2 pl-4 list-disc text-[12.5px] text-gray-500 font-semibold font-sans">
+                    {h.exitDetails.map((exit, eIdx) => (
+                      <li key={eIdx}>{exit}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          )) : data.highlightsStr?.map((item, i) => (
+            <div key={i} className="flex items-center gap-3 p-4 bg-white border border-gray-100 rounded-xl shadow-sm">
+               <CheckCircle2 className="text-green-500" size={20} />
+               <span className="text-sm font-medium text-gray-700">{item}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 8. Objectives & 9. Outcomes Section */}
+      {(data.objectives || data.outcomes) && (
+        <section className="bg-gray-50 py-16 border-y border-gray-100">
+          <div className="max-w-[1140px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {data.objectives && (
+              <div>
+                <h2 className="text-2xl font-extrabold text-black mb-6 font-sans">Objectives</h2>
+                <div className="space-y-4">
+                  {data.objectives.map((obj, idx) => (
+                    <div key={idx} className="p-4 bg-white rounded-xl border border-gray-150 flex gap-3 shadow-sm">
+                      <span className="font-bold text-red-700 text-[14px] flex-shrink-0 mt-0.5">{idx + 1}.</span>
+                      <p className="text-[13.5px] text-gray-600 font-medium leading-relaxed font-sans">{obj}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            {data.outcomes && (
+              <div>
+                <h2 className="text-2xl font-extrabold text-black mb-6 font-sans">Outcomes</h2>
+                <div className="space-y-4">
+                  {data.outcomes.map((out, idx) => (
+                    <div key={idx} className="p-4 bg-white rounded-xl border border-gray-150 flex gap-3 shadow-sm">
+                      <span className="font-bold text-[#0066cc] text-[14px] flex-shrink-0 mt-0.5">{idx + 1}.</span>
+                      <p className="text-[13.5px] text-gray-600 font-medium leading-relaxed font-sans">{out}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* 10. Advantages Section */}
+      {data.advantages && (
+        <section className="max-w-[1140px] mx-auto px-6 py-16 md:py-24 bg-white">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-black mb-4 font-sans">Advantages</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {data.advantages.map((adv, idx) => (
+              <div key={idx} className="p-6 bg-white rounded-xl border border-gray-150 shadow-sm hover:shadow-md transition-all duration-350">
+                <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center mb-4 flex-shrink-0 text-amber-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <h5 className="text-[11.5px] font-bold text-gray-400 uppercase tracking-wider mb-1 font-sans">{adv.label}</h5>
+                <h4 className="font-extrabold text-[15.5px] text-gray-800 mb-2 leading-snug font-sans">{adv.title}</h4>
+                <p className="text-[12.5px] text-gray-500 leading-relaxed font-semibold font-sans">{adv.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* NEP Exit Options (Generic Fallback if advantages are not present) */}
+      {!data.advantages && data.exitOptions && (
+        <section className="bg-gray-50 py-16 border-y border-gray-100">
+           <div className="max-w-[1140px] mx-auto px-6">
               <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                 <Info size={20} className="text-secondary" /> NEP 2020 Exit Pathways
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-                 {data.exitOptions.map((opt: any, i: number) => (
-                   <div key={i} className="bg-gray-50 p-4 rounded-xl border border-gray-100 text-center">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                 {data.exitOptions.map((opt, i) => (
+                   <div key={i} className="bg-white p-4 rounded-xl border border-gray-100 text-center shadow-sm">
                       <p className="text-xs font-bold text-primary mb-1">{opt.year}</p>
                       <p className="text-sm font-black text-gray-900">{opt.award}</p>
                    </div>
                  ))}
               </div>
+           </div>
+        </section>
+      )}
 
-              {/* Certification Levels (for short courses) */}
-              {data.certificationLevels && (
-                <>
-                  <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                    <CheckCircle2 size={20} className="text-secondary" /> Certification Pathways
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                     {data.certificationLevels.map((lvl: any, i: number) => (
-                       <div key={i} className="bg-white p-6 rounded-2xl border-2 border-gray-50 hover:border-secondary transition-colors shadow-sm">
-                          <p className="text-xs font-black text-secondary uppercase tracking-widest mb-2">{lvl.level}</p>
-                          <div className="flex justify-between items-end">
-                             <div>
-                                <p className="text-sm text-gray-400">Duration</p>
-                                <p className="font-bold text-gray-900">{lvl.duration}</p>
-                             </div>
-                             <div className="text-right">
-                                <p className="text-sm text-gray-400">Fee</p>
-                                <p className="font-black text-primary">{lvl.fee}</p>
-                             </div>
-                          </div>
-                       </div>
-                     ))}
-                  </div>
-                </>
-              )}
-
-              {/* Specializations */}
-              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                <Briefcase size={20} className="text-secondary" /> Specializations Offered
-              </h3>
-              <div className="flex flex-wrap gap-3 mb-12">
-                 {data.specializations.map((spec, i) => (
-                   <span key={i} className="px-6 py-2 bg-primary/5 text-primary rounded-full font-bold text-sm border border-primary/10">
-                     {spec}
-                   </span>
-                 ))}
-              </div>
-
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Key Highlights</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                 {data.highlights.map((item, i) => (
-                   <div key={i} className="flex items-center gap-3 p-4 bg-white border border-gray-100 rounded-xl shadow-sm">
-                      <CheckCircle2 className="text-green-500" size={20} />
-                      <span className="text-sm font-medium text-gray-700">{item}</span>
-                   </div>
-                 ))}
-              </div>
-            </div>
-
-            {/* Sidebar CTA */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-32 bg-gray-900 rounded-3xl p-8 text-white shadow-2xl">
-                <h3 className="text-2xl font-black mb-4">Admissions Open 2026-27</h3>
-                <p className="text-white/60 mb-8 text-sm">Join a community of global leaders. Limited seats available for the upcoming session.</p>
-                <Button 
-                  className="w-full py-4 rounded-xl text-lg font-black bg-secondary hover:bg-amber-500 text-gray-900"
-                  onClick={() => window.location.href = '/admission-open'}
-                >
-                  APPLY NOW
-                </Button>
-                <div className="mt-8 pt-8 border-t border-white/10 space-y-4">
-                   <div className="flex items-center gap-3">
-                      <Globe className="text-secondary" size={20} />
-                      <span className="text-sm font-bold">Global Exposure</span>
-                   </div>
-                   <div className="flex items-center gap-3">
-                      <Landmark className="text-secondary" size={20} />
-                      <span className="text-sm font-bold">Industry Tie-ups</span>
-                   </div>
-                </div>
-              </div>
-            </div>
-
+      {/* 11. Admission Process Section */}
+      <section className="bg-gray-50 py-16 border-t border-gray-100">
+        <div className="max-w-[1140px] mx-auto px-6 text-center">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-black mb-4 font-sans">Admission Process</h2>
+          <p className="text-[14.5px] text-gray-500 font-semibold max-w-3xl mx-auto mb-10 leading-relaxed font-sans">
+            Our Admission process enables us to meticulously give importance to every individual applying. The admission of the applicant will majorly be based on our admission process scores.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <Link 
+              href="/admission-open" 
+              className="px-8 py-3 rounded-xl bg-red-700 text-white font-extrabold text-[14px] tracking-wider hover:bg-red-800 transition-colors shadow-md font-sans animate-pulse"
+            >
+              Apply Now
+            </Link>
+            <Link 
+              href="/contact" 
+              className="px-8 py-3 rounded-xl border-2 border-red-700 text-red-700 font-extrabold text-[14px] tracking-wider hover:bg-red-50 transition-colors shadow-sm font-sans"
+            >
+              Enquire Now
+            </Link>
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

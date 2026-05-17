@@ -1,0 +1,647 @@
+{
+  "bba": {
+    "slug": "bba",
+    "title": "BBA",
+    "tagline": "Innovating for a Better Future",
+    "duration": "BBA - 3 Years",
+    "fees": "₹ 40,000 per semester",
+    "eligibility": "Qualified Class 12 in any discipline",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "imba": {
+    "slug": "imba",
+    "title": "iMBA",
+    "tagline": "Innovating for a Better Future",
+    "duration": "5 Years",
+    "fees": "₹ 40,000 per semester",
+    "eligibility": "Pass In 12th Grade",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "ibbambaaht": {
+    "slug": "ibbambaaht",
+    "title": "Aviation, Hospitality & Travel Management",
+    "tagline": "Innovating for a Better Future",
+    "duration": "5 Years",
+    "fees": "₹ 67,500 per semester",
+    "eligibility": "Pass In 12th Grade",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "ibbamba": {
+    "slug": "ibbamba",
+    "title": "International Trade & Finance",
+    "tagline": "Innovating for a Better Future",
+    "duration": "5 Years",
+    "fees": "₹ 67,500 per semester",
+    "eligibility": "Qualified Class 12",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "bba-hons-itrade-finance": {
+    "slug": "bba-hons-itrade-finance",
+    "title": "International Trade & Finance",
+    "tagline": "Innovating for a Better Future",
+    "duration": "BBA - 3 Years",
+    "fees": "₹ 67,500 per semester",
+    "eligibility": "Qualified Class 12 in any discipline",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "bcom": {
+    "slug": "bcom",
+    "title": "B.Com",
+    "tagline": "Innovating for a Better Future",
+    "duration": "B.Com - 3 Years",
+    "fees": "₹30,000 per semester",
+    "eligibility": "Qualified class 12 in any discipline",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "bcom-hons-acca": {
+    "slug": "bcom-hons-acca",
+    "title": "B.Com (Hons) with ACCA",
+    "tagline": "Innovating for a Better Future",
+    "duration": "4 Years",
+    "fees": "₹ 60,000 per semester",
+    "eligibility": "Qualified Class 12 in any discipline",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "bca": {
+    "slug": "bca",
+    "title": "BCA",
+    "tagline": "Innovating for a Better Future",
+    "duration": "BCA - 3 Years",
+    "fees": "₹ 40,000 per semester",
+    "eligibility": "Qualified class 12 in any discipline",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "imca": {
+    "slug": "imca",
+    "title": "iMCA",
+    "tagline": "Innovating for a Better Future",
+    "duration": "5 Years",
+    "fees": "₹ 40,000 per semester",
+    "eligibility": "Qualified Class 12 in any discipline",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "imsc-it": {
+    "slug": "imsc-it",
+    "title": "iMSc (IT)",
+    "tagline": "Innovating for a Better Future",
+    "duration": "5 Years",
+    "fees": "₹ 37,500 per semester",
+    "eligibility": "Qualified class 12 in any discipline",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "bsc-hons-imsc-forensic-science": {
+    "slug": "bsc-hons-imsc-forensic-science",
+    "title": "Forensic Science & Technology",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 - 5 Years",
+    "fees": "₹ 45,000 per semester",
+    "eligibility": "Qualified Class 12 in any discipline",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "bsc-hons-imsc-cyber-digital-forensic": {
+    "slug": "bsc-hons-imsc-cyber-digital-forensic",
+    "title": "Cyber & Digital Forensic",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 - 5 Years",
+    "fees": "₹ 50,000 per semester",
+    "eligibility": "Qualified Class 12 in any discipline",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "bsc-hons-imsc-quantum-computing": {
+    "slug": "bsc-hons-imsc-quantum-computing",
+    "title": "Quantum Computing",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 - 5 Years",
+    "fees": "₹ 70,000 per semester",
+    "eligibility": "Qualified Class 12 in any discipline",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "bsc-hons-imsc-mathematics-computing": {
+    "slug": "bsc-hons-imsc-mathematics-computing",
+    "title": "Mathematics & Computing",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 - 5 Years",
+    "fees": "₹ 60,000 per semester",
+    "eligibility": "Qualified Class 12 in any discipline",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "bsc-hons-imsc-clinical-embryology": {
+    "slug": "bsc-hons-imsc-clinical-embryology",
+    "title": "Clinical Embryology & Reproductive Biology",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 - 5 Years",
+    "fees": "₹ 50,000 per semester",
+    "eligibility": "Qualified Class 12 in any discipline",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "bsc-hons-imsc-food-nutrition-lifestyle": {
+    "slug": "bsc-hons-imsc-food-nutrition-lifestyle",
+    "title": "Food, Nutrition & Lifestyle Science",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 - 5 Years",
+    "fees": "₹ 40,000 per semester",
+    "eligibility": "Qualified Class 12 in any discipline",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "b-tech": {
+    "slug": "b-tech",
+    "title": "JG University's School of Engineering",
+    "tagline": "Innovating for a Better Future",
+    "duration": "4 years, 8 semesters",
+    "fees": "₹39,375 per semester",
+    "eligibility": "Qualified Class 12",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "b-tech-it": {
+    "slug": "b-tech-it",
+    "title": "JG University's School of Engineering",
+    "tagline": "Innovating for a Better Future",
+    "duration": "4 years, 8 semesters",
+    "fees": "₹39,375 per semester",
+    "eligibility": "Qualified Class 12",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "btech-data-science": {
+    "slug": "btech-data-science",
+    "title": "JG University’s School of Engineering",
+    "tagline": "Innovating for a Better Future",
+    "duration": "4 Years, 8 semesters",
+    "fees": "₹39,375 per semester",
+    "eligibility": "Qualified Class 12",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "btech-artificial-intelligence": {
+    "slug": "btech-artificial-intelligence",
+    "title": "JG University's School of Engineering",
+    "tagline": "Innovating for a Better Future",
+    "duration": "4 Years, 8 semesters",
+    "fees": "₹39,375 per semester",
+    "eligibility": "Qualified Class 12",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "btech-cse-ai": {
+    "slug": "btech-cse-ai",
+    "title": "JG University’s School of Engineering",
+    "tagline": "Innovating for a Better Future",
+    "duration": "4 Years, 8 semesters",
+    "fees": "₹39,375 per semester",
+    "eligibility": "Qualified Class 12",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "btech-cse-ai-ml": {
+    "slug": "btech-cse-ai-ml",
+    "title": "JG University’s School of Engineering",
+    "tagline": "Innovating for a Better Future",
+    "duration": "4 Years, 8 semesters",
+    "fees": "₹39,375 per semester",
+    "eligibility": "Qualified Class 12",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "btech-cse-big-data": {
+    "slug": "btech-cse-big-data",
+    "title": "JG University’s School of Engineering",
+    "tagline": "Innovating for a Better Future",
+    "duration": "4 Years, 8 semesters",
+    "fees": "₹39,375 per semester",
+    "eligibility": "Qualified Class 12",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "llb": {
+    "slug": "llb",
+    "title": "Bachelor of Legislative Law",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 Years",
+    "fees": "₹ 30,000 per semester",
+    "eligibility": "Bachelors",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "mba": {
+    "slug": "mba",
+    "title": "JG University's School of Management",
+    "tagline": "Innovating for a Better Future",
+    "duration": "2 Years",
+    "fees": "₹42,525 per semester",
+    "eligibility": "Bachelor’s degree in any field",
+    "specializationsStr": [
+      "Important note :\n1. The availability and allotment of MBA specializations/ electives are contingent upon a minimum number of students who apply for the same at the beginning of Semester -3 for each specialization/elective.\n2. A specialization/ elective will only be offered if the class reaches the requisite number of minimum students opting for the same as decided by the university each year at the beginning of Semester - 3\n3. In case of insufficient request for a particular specialization/elective, the subject allotment will be done by the university on the basis of 'in order of preference' given by the students in Elective Selection Request Form which shall be final and binding."
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "mba-international-trade-finance": {
+    "slug": "mba-international-trade-finance",
+    "title": "International Trade & Finance",
+    "tagline": "Innovating for a Better Future",
+    "duration": "2 Years",
+    "fees": "₹ 65,000 per semester",
+    "eligibility": "Bachelor’s degree in any field",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "mahtm": {
+    "slug": "mahtm",
+    "title": "Aviation, Hospitality & Travel Management",
+    "tagline": "Innovating for a Better Future",
+    "duration": "2 Years",
+    "fees": "₹ 65,000 per semester",
+    "eligibility": "Bachelor’s degree in any field",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "mcom": {
+    "slug": "mcom",
+    "title": "M.Com (Hons)",
+    "tagline": "Innovating for a Better Future",
+    "duration": "2 Years",
+    "fees": "₹ 60,000 per semester",
+    "eligibility": "Bachelor’s degree with relevant commerce subjects",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "mca": {
+    "slug": "mca",
+    "title": "JG University's School of Computing",
+    "tagline": "Innovating for a Better Future",
+    "duration": "2 Years",
+    "fees": "₹40,950 per semester",
+    "eligibility": "Bachelor’s Degree in Computer Science or Information Technology",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "msc-cyber": {
+    "slug": "msc-cyber",
+    "title": "M.Sc.",
+    "tagline": "Innovating for a Better Future",
+    "duration": "2 Years",
+    "fees": "₹ 60,000 per semester",
+    "eligibility": "Bachelors Degree",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "msc-forensic": {
+    "slug": "msc-forensic",
+    "title": "M.Sc.",
+    "tagline": "Innovating for a Better Future",
+    "duration": "2 Years",
+    "fees": "₹ 45,000 per semester",
+    "eligibility": "Bachelors Degree",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "msc-clinic": {
+    "slug": "msc-clinic",
+    "title": "M.Sc.",
+    "tagline": "Innovating for a Better Future",
+    "duration": "2 Years",
+    "fees": "₹ 60,000 per semester",
+    "eligibility": "Bachelor of Science with Biological Science, MBBS, BDS, BHMS, BAMS, Nursing, Applied Biological Science",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "metaverse": {
+    "slug": "metaverse",
+    "title": "Certificate Course in Metaverse",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 months",
+    "fees": "TBD",
+    "eligibility": "Foundation Course\n\nNon-IT students need to do a bridge course to get into the intermediate level\n\nIntermediate Course\n\nStudents with MCA, BCA, M.Sc(IT), B.Sc (IT), B. Tech (CS/ CE) degree\n\nExpert Course\n\nWorking IT professionals",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "data-science-ai-ml": {
+    "slug": "data-science-ai-ml",
+    "title": "Certificate Course in Data Science, AI-ML",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 months",
+    "fees": "TBD",
+    "eligibility": "Foundation Course\n\nNon-IT students need to do a bridge course to get into the intermediate level\n\nIntermediate Course\n\nStudents with MCA, BCA, M.Sc(IT), B.Sc (IT), B. Tech (CS/ CE) degree\n\nExpert Course\n\nWorking IT professionals",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "mobile-applications": {
+    "slug": "mobile-applications",
+    "title": "Certificate Course in Mobile Applications",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 months",
+    "fees": "TBD",
+    "eligibility": "Expert Course\n\nWorking IT professionals",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "blockchain": {
+    "slug": "blockchain",
+    "title": "Certificate Course in Blockchain",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 months",
+    "fees": "TBD",
+    "eligibility": "Foundation Course\n\nNon-IT students need to do a bridge course to get into the intermediate level\n\nIntermediate Course\n\nStudents with MCA, BCA, M.Sc(IT), B.Sc (IT), B. Tech (CS/ CE) degree\n\nExpert Course\n\nWorking IT professionals",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "digital-marketing": {
+    "slug": "digital-marketing",
+    "title": "Certificate Course in Digital Marketing",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 months",
+    "fees": "TBD",
+    "eligibility": "Foundation Course\n\nNon-IT students need to do a bridge course to get into the intermediate level\n\nIntermediate Course\n\nStudents with MCA, BCA, M.Sc(IT), B.Sc (IT), B. Tech (CS/ CE) degree\n\nExpert Course\n\nWorking IT professionals",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "cyber-security": {
+    "slug": "cyber-security",
+    "title": "Certificate Course in Cyber Security",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 months",
+    "fees": "TBD",
+    "eligibility": "Foundation Course\n\nNon-IT students need to do a bridge course to get into the intermediate level\n\nIntermediate Course\n\nStudents with MCA, BCA, M.Sc(IT), B.Sc (IT), B. Tech (CS/ CE) degree\n\nExpert Course\n\nWorking IT professionals",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "robotic-process-automation": {
+    "slug": "robotic-process-automation",
+    "title": "Certificate Course in Robotic Process Automation",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 months",
+    "fees": "TBD",
+    "eligibility": "Foundation Course\n\nNon-IT students need to do a bridge course to get into the intermediate level\n\nIntermediate Course\n\nStudents with MCA, BCA, M.Sc(IT), B.Sc (IT), B. Tech (CS/ CE) degree\n\nExpert Course\n\nWorking IT professionals",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "industrial-iot": {
+    "slug": "industrial-iot",
+    "title": "Certificate Course in Industrial IoT",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 months",
+    "fees": "TBD",
+    "eligibility": "Foundation Course\n\nNon-IT students need to do a bridge course to get into the intermediate level\n\nIntermediate Course\n\nStudents with MCA, BCA, M.Sc(IT), B.Sc (IT), B. Tech (CS/ CE) degree\n\nExpert Course\n\nWorking IT professionals",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "full-stack-architect": {
+    "slug": "full-stack-architect",
+    "title": "Certificate Course in Full Stack Architect",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 months",
+    "fees": "TBD",
+    "eligibility": "Expert Course\n\nWorking IT professionals",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "azure-devops": {
+    "slug": "azure-devops",
+    "title": "Certificate Course in Azure DevOps",
+    "tagline": "Innovating for a Better Future",
+    "duration": "3 months",
+    "fees": "TBD",
+    "eligibility": "Foundation Course\n\nNon-IT students need to do a bridge course to get into the intermediate level\n\nIntermediate Course\n\nStudents with MCA, BCA, M.Sc(IT), B.Sc (IT), B. Tech (CS/ CE) degree\n\nExpert Course\n\nWorking IT professionals",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  },
+  "doctoral-programmes": {
+    "slug": "doctoral-programmes",
+    "title": "Doctoral Programmes",
+    "tagline": "Ph.D Seat Matrix - January 2024",
+    "duration": "Minimum 3 Years - Maximum 5 Years",
+    "fees": "₹ 40,000 per semester",
+    "eligibility": "The candidate must have passed the Master’s Degree examination in Arts/Commerce/Social Sciences/Humanities/Computing/Education (if the bachelor’s degree is obtained in 10+2+3 pattern) with 55% or equivalent CGPA at postgraduate level. The candidates who have obtained the Bachelor’s degree with Honors (in 10+2+4 pattern) and have passed a one-year Master’s degree Examination (two semesters) with 55% or equivalent CGPA, are also eligible to apply for admission.\n\n*SC, ST, EWS and PwD candidates will be given a relaxation of 5%.\n\nThe Bachelor’s and Master’s Degree must be from universities or institutions recognized by the MHRD/ UGC/Government of India or any University incorporated by an Act of Central or State legislature in India.\nThe candidates with professional qualifications like CA/CS etc. can also apply for admission even if they do not possess master’s degree. However, such candidates shall also take entrance test followed by Group Discussion and Personal Interview.\n\n*SC, ST, EWS and PwD candidates will be given a relaxation of 5%.\n\nThe University will administer its own PhD entrance test followed by Group Discussion and Viva for admission to doctoral programme.\nThe candidates who have cleared NET/SLET or possess a valid MPhil degree and whose admission at MPhil level has been through an entrance test will be exempted from the entrance test. However, the final admission rests on their performance in Group Discussion and Viva.\nThe final admission to the programme is subject to the availability of a valid proof substantiating the academic achievements and credentials of the candidate. The decision of the authorities at School of Research, JG University regarding eligibility of any candidate shall be regarded as final.",
+    "specializationsStr": [
+      "Core Curriculum"
+    ],
+    "highlightsStr": [
+      "Industry Aligned",
+      "Practical Training"
+    ]
+  }
+}

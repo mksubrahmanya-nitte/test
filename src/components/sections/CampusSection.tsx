@@ -37,7 +37,7 @@ export default function CampusSection() {
           viewport={{ once: true }}
           onClick={() => setVideoModalOpen(true)}
         >
-          <img src="https://images.unsplash.com/photo-1525926477800-7a3b10316ac6?auto=format&fit=crop&q=80&w=1600" alt="Campus Video" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img src="/images/campus-banner.jpg" alt="Campus Video" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
           <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition-colors">
             <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition-transform">
               <Play className="text-white ml-2" size={32} />

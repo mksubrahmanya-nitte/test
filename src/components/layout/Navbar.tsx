@@ -245,44 +245,100 @@ const navLinks = [
   { label: "Contact Us",       href: "#contact" },
 ];
 
-const ugPrograms = [
-  "BBA | BBA (Hons)",
-  "Integrated BBA + MBA",
-  "Integrated BBA + MBA - Global Business",
-  "BBA / BBA (Hons) / iMBA",
-  "B.Com | B.Com (Hons)",
-  "B.Com (Hons) with ACCA",
-  "BCA | BCA (Hons)",
-  "Integrated BSc + MSc (IT)",
-  "Integrated BSc + MSc (IT-Specialization)",
-  "B.Sc. / B.Sc. (Hons) / iMSc",
-  "Integrated BCA + MCA",
-  "B.Tech Programs",
-  "BBA | BBA (Hons) - International Trade & Finance",
-  "Integrated BBA + MBA - Aviation, Hospitality, & Travel Management",
-  "Integrated BBA + MBA - International Trade & Finance",
-  "LL.B.",
-];
-
-const pgPrograms = [
-  "MBA",
-  "Masters in International Trade & Finance",
-  "Masters in Aviation, Hospitality & Travel Management",
-  "M.Com (Hons) - International Accounting & Taxation",
-  "MCA",
-  "MCA - AI / Full Stack Development",
-  "MSc (IT-Specialization)",
-  "MSc",
-  "LL.M.",
-];
-
-const phdPrograms = [
-  "Management",
-  "Commerce",
-  "Computing",
-  "Interdisciplinary",
-  "Law",
-  "Forensic Science",
+// ??$$$ newer code
+const schoolsData = [
+  {
+    name: "School of Management",
+    courses: [
+      { name: "iMBA - 5 years, 10 semesters", href: "/imba" },
+      { name: "iMBA - Aviation, Hospitality & Travel Management - 5 years", href: "/ibbambaaht" },
+      { name: "iMBA - International Trade & Finance - 5 years", href: "/ibbamba" },
+      { name: "BBA (Hons) - International Trade & Finance - 4 years", href: "/bba-hons-itrade-finance" },
+      { name: "MBA - 2 years, 4 semesters", href: "/mba" },
+      { name: "Masters in International Trade & Finance", href: "/mba-international-trade-finance" },
+    ]
+  },
+  {
+    name: "School of Commerce",
+    courses: [
+      { name: "B.Com (Hons) - 4 years", href: "/bcom" },
+      { name: "B.Com (Hons) with ACCA - 4 years", href: "/bcom-hons-acca" },
+      { name: "M.Com (Hons) - International Accounting & Taxation", href: "/mcom" },
+    ]
+  },
+  {
+    name: "School of Computing",
+    courses: [
+      { name: "BCA (Hons) - 4 years", href: "/bca" },
+      { name: "iMCA - 5 years", href: "/imca" },
+      { name: "iMSc (IT) - 5 years", href: "/imsc-it" },
+      { name: "MCA - 2 years", href: "/mca" },
+      { name: "MCA - AI & Full Stack Development", href: "/mca" },
+    ]
+  },
+  {
+    name: "School of Engineering",
+    courses: [
+      { name: "B.Tech - CSE", href: "/b-tech" },
+      { name: "B.Tech - IT", href: "/b-tech-it" },
+      { name: "B.Tech - AI & DS", href: "/btech-data-science" },
+      { name: "B.Tech - AI & ML", href: "/btech-artificial-intelligence" },
+      { name: "B.Tech - CE", href: "/btech-computer-engineering" },
+      { name: "B.Tech - CSE (AI)", href: "/btech-cse-ai" },
+      { name: "B.Tech - CSE (AI & ML)", href: "/btech-cse-ai-ml" },
+      { name: "B.Tech - CSE (Big Data Analytics)", href: "/btech-cse-big-data" },
+    ]
+  },
+  {
+    name: "School of Investigative and Applied Sciences (SIAS)",
+    courses: [
+      { name: "iMSc - Forensic Science - 5 years", href: "/bsc-hons-imsc-forensic-science" },
+      { name: "iMSc - Cyber Security & Digital Forensics - 5 years", href: "/bsc-hons-imsc-cyber-digital-forensic" },
+      { name: "iMSc - Clinical Embryology - 5 years", href: "/bsc-hons-imsc-clinical-embryology" },
+      { name: "M.Sc - Cyber Security & Digital Forensics", href: "/msc-cyber" },
+      { name: "M.Sc - Forensic Science & Technology", href: "/msc-forensic" },
+      { name: "M.Sc - Clinical Embryology & ART", href: "/msc-clinic" },
+    ]
+  },
+  {
+    name: "School of Law",
+    courses: [
+      { name: "LL.B. - 3 years", href: "/llb" },
+      { name: "LL.M. - 2 years", href: "#" },
+    ]
+  },
+  {
+    name: "School of Aviation & Hospitality",
+    courses: [
+      { name: "iMBA - Aviation, Hospitality & Travel Management", href: "/ibbambaaht" },
+      { name: "Masters in Aviation, Hospitality & Travel Management", href: "/mahtm" },
+    ]
+  },
+  {
+    name: "School of Research & Innovation (Ph.D)",
+    courses: [
+      { name: "Commerce", href: "/doctoral-programmes" },
+      { name: "Management", href: "/doctoral-programmes" },
+      { name: "Computing", href: "/doctoral-programmes" },
+      { name: "Interdisciplinary", href: "/doctoral-programmes" },
+      { name: "Law", href: "/doctoral-programmes" },
+    ]
+  },
+  {
+    name: "School of Emerging Technology (Certificate Courses)",
+    courses: [
+      { name: "Metaverse", href: "/metaverse" },
+      { name: "Data Science, AI-ML", href: "/data-science-ai-ml" },
+      { name: "Mobile Applications", href: "/mobile-applications" },
+      { name: "Blockchain", href: "/blockchain" },
+      { name: "Digital Marketing", href: "/digital-marketing" },
+      { name: "Cyber Security", href: "/cyber-security" },
+      { name: "Robotic Process Automation", href: "/robotic-process-automation" },
+      { name: "Industrial IoT", href: "/industrial-iot" },
+      { name: "Full Stack Architect", href: "/full-stack-architect" },
+      { name: "Azure DevOps", href: "/azure-devops" },
+    ]
+  }
 ];
 
 const resourceItems = [
@@ -299,6 +355,18 @@ const mediaItems = [
   "Awards and Recognition",
 ];
 
+const discoverCol1 = [
+  "Vision",
+  "Why Us",
+  "Our Leaders",
+];
+
+const discoverCol2 = [
+  "Our DNA",
+  "Faculty Members",
+  "FAQs",
+];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -310,6 +378,10 @@ export default function Navbar() {
   const [hoverMediaTrigger, setHoverMediaTrigger] = useState(false);
   const [hoverMediaMenu, setHoverMediaMenu] = useState(false);
   const [mediaOpen, setMediaOpen] = useState(false);
+
+  const [hoverDiscoverTrigger, setHoverDiscoverTrigger] = useState(false);
+  const [hoverDiscoverMenu, setHoverDiscoverMenu] = useState(false);
+  const [discoverOpen, setDiscoverOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -340,7 +412,18 @@ export default function Navbar() {
     }
   }, [hoverMediaTrigger, hoverMediaMenu]);
 
-  const isLogoMinimized = scrolled || programmesOpen || mediaOpen;
+  useEffect(() => {
+    if (hoverDiscoverTrigger || hoverDiscoverMenu) {
+      setDiscoverOpen(true);
+    } else {
+      const timer = setTimeout(() => {
+        setDiscoverOpen(false);
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [hoverDiscoverTrigger, hoverDiscoverMenu]);
+
+  const isLogoMinimized = scrolled || programmesOpen || mediaOpen || discoverOpen;
 
   return (
     <header 
@@ -401,6 +484,85 @@ export default function Navbar() {
                 </button>
               );
             }
+            if (l.label === "Discover Us") {
+              return (
+                <div key={l.label} className="relative">
+                  <button
+                    onMouseEnter={() => setHoverDiscoverTrigger(true)}
+                    onMouseLeave={() => setHoverDiscoverTrigger(false)}
+                    onClick={() => setHoverDiscoverTrigger(!hoverDiscoverTrigger)}
+                    className={`text-[13.5px] font-semibold tracking-wide whitespace-nowrap focus:outline-none transition-colors discover-trigger ${
+                      discoverOpen ? "text-red-700" : "text-gray-600 hover:text-red-700"
+                    }`}
+                  >
+                    {l.label}
+                  </button>
+
+                  {discoverOpen && (
+                    <div
+                      onMouseEnter={() => setHoverDiscoverMenu(true)}
+                      onMouseLeave={() => setHoverDiscoverMenu(false)}
+                      className="absolute left-[-220px] top-[44px] bg-white border border-gray-200 shadow-2xl rounded-lg p-8 w-[640px] mega-menu-container animate-fade-in-down"
+                      style={{ zIndex: 90 }}
+                    >
+                      <div className="flex gap-10">
+                        {/* Left Side: Logo Graphic */}
+                        <div className="w-[180px] h-[100px] relative flex-shrink-0 flex items-center justify-center border-r border-gray-100 pr-6 mt-2">
+                          <div className="relative w-full h-full">
+                            <Image
+                              src="/images/logo.png"
+                              alt="JG University"
+                              fill
+                              className="object-contain"
+                              priority
+                            />
+                          </div>
+                        </div>
+
+                        {/* Right Side: Columns under "About Us" */}
+                        <div className="flex-grow">
+                          <h3 className="text-[14px] font-bold text-[#0066cc] mb-4 border-b pb-2 tracking-wide uppercase">
+                            About Us
+                          </h3>
+                          <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+                            <div className="flex flex-col gap-2">
+                              {discoverCol1.map((item, idx) => (
+                                <a
+                                  key={idx}
+                                  href={`/${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                                  className="text-[12.5px] text-gray-700 hover:text-red-700 transition-colors leading-snug py-0.5 tracking-normal hover:underline font-medium"
+                                  onClick={() => {
+                                    setHoverDiscoverTrigger(false);
+                                    setHoverDiscoverMenu(false);
+                                  }}
+                                >
+                                  {item}
+                                </a>
+                              ))}
+                            </div>
+                            <div className="flex flex-col gap-2">
+                              {discoverCol2.map((item, idx) => (
+                                <a
+                                  key={idx}
+                                  href={`/${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                                  className="text-[12.5px] text-gray-700 hover:text-red-700 transition-colors leading-snug py-0.5 tracking-normal hover:underline font-medium"
+                                  onClick={() => {
+                                    setHoverDiscoverTrigger(false);
+                                    setHoverDiscoverMenu(false);
+                                  }}
+                                >
+                                  {item}
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            }
             if (l.label === "Media") {
               return (
                 <div key={l.label} className="relative">
@@ -426,7 +588,7 @@ export default function Navbar() {
                         {mediaItems.map((item, idx) => (
                           <a
                             key={idx}
-                            href={`/media/${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                            href={`/${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
                             className="px-6 py-2.5 text-[13px] text-gray-700 hover:text-red-700 hover:bg-gray-50 transition-colors leading-snug tracking-normal border-b border-gray-50 last:border-0 font-medium"
                             onClick={() => {
                               setHoverMediaTrigger(false);
@@ -485,23 +647,53 @@ export default function Navbar() {
         {/* ── HIGH FIDELITY PROGRAMMES MEGA MENU ── */}
         {programmesOpen && (
           <div 
-            className="absolute left-6 top-[70px] bg-white border border-gray-200 shadow-2xl rounded-b-lg p-8 w-[1020px] max-w-5xl mega-menu-container animate-fade-in-down"
+            className="absolute top-[70px] bg-white border border-gray-200 shadow-2xl rounded-lg p-8 w-[1140px] max-w-[95vw] left-[-200px] xl:left-[-150px] max-h-[80vh] overflow-y-auto mega-menu-container animate-fade-in-down"
             style={{ zIndex: 90 }}
             onMouseEnter={() => setHoverMenu(true)}
             onMouseLeave={() => setHoverMenu(false)}
           >
-            <div className="grid grid-cols-3 gap-8">
-              {/* Column 1: Undergraduate Programmes */}
-              <div>
-                <h3 className="text-[14px] font-bold text-[#0066cc] mb-4 border-b pb-2 tracking-wide uppercase">
-                  Undergraduate Programmes
-                </h3>
-                <div className="flex flex-col gap-2">
-                  {ugPrograms.map((item, idx) => (
+            {/* Main Schools Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8 border-b border-gray-100 pb-8">
+              {schoolsData.map((school) => (
+                <div key={school.name} className="flex flex-col gap-2">
+                  <h3 className="text-[13px] font-bold text-[#0066cc] border-b pb-2 tracking-wide uppercase">
+                    {school.name}
+                  </h3>
+                  <div className="flex flex-col gap-1.5 mt-1">
+                    {school.courses.map((course, idx) => (
+                      course.href === '#' ? (
+                        <span key={idx} className="text-[12px] text-gray-400 cursor-default select-none font-medium">
+                          {course.name}
+                        </span>
+                      ) : (
+                        <Link
+                          key={idx}
+                          href={course.href}
+                          className="text-[12px] text-gray-700 hover:text-red-700 transition-colors leading-snug tracking-normal hover:underline font-medium animate-fade-in-down"
+                          onClick={() => {
+                            setHoverTrigger(false);
+                            setHoverMenu(false);
+                          }}
+                        >
+                          {course.name}
+                        </Link>
+                      )
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom Menu Bar containing Resources & NEP 2020 */}
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs pt-2">
+              <div className="flex items-center gap-6">
+                <span className="font-bold text-gray-900 uppercase tracking-wider">Resources:</span>
+                <div className="flex gap-4">
+                  {resourceItems.map((item, idx) => (
                     <a
                       key={idx}
-                      href={`/programmes/${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                      className="text-[12.5px] text-gray-700 hover:text-red-700 transition-colors leading-snug py-0.5 tracking-normal hover:underline"
+                      href={`/${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                      className="text-gray-600 hover:text-red-700 hover:underline transition-colors font-semibold"
                       onClick={() => {
                         setHoverTrigger(false);
                         setHoverMenu(false);
@@ -513,94 +705,21 @@ export default function Navbar() {
                 </div>
               </div>
 
-              {/* Column 2: Postgraduate & Doctoral Programmes */}
-              <div className="flex flex-col gap-6">
-                <div>
-                  <h3 className="text-[14px] font-bold text-[#0066cc] mb-4 border-b pb-2 tracking-wide uppercase">
-                    Postgraduate Programmes
-                  </h3>
-                  <div className="flex flex-col gap-2">
-                    {pgPrograms.map((item, idx) => (
-                      <a
-                        key={idx}
-                        href={`/programmes/${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                        className="text-[12.5px] text-gray-700 hover:text-red-700 transition-colors leading-snug py-0.5 tracking-normal hover:underline"
-                        onClick={() => {
-                          setHoverTrigger(false);
-                          setHoverMenu(false);
-                        }}
-                      >
-                        {item}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-[14px] font-bold text-[#0066cc] mb-4 border-b pb-2 tracking-wide uppercase">
-                    Doctoral Programmes (Ph.D)
-                  </h3>
-                  <div className="flex flex-col gap-2">
-                    {phdPrograms.map((item, idx) => (
-                      <a
-                        key={idx}
-                        href={`/programmes/phd-${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                        className="text-[12.5px] text-gray-700 hover:text-red-700 transition-colors leading-snug py-0.5 tracking-normal hover:underline"
-                        onClick={() => {
-                          setHoverTrigger(false);
-                          setHoverMenu(false);
-                        }}
-                      >
-                        {item}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Column 3: Resources & NEP 2020 */}
-              <div className="flex flex-col gap-6">
-                <div>
-                  <h3 className="text-[14px] font-bold text-[#0066cc] mb-4 border-b pb-2 tracking-wide uppercase">
-                    Resources
-                  </h3>
-                  <div className="flex flex-col gap-2">
-                    {resourceItems.map((item, idx) => (
-                      <a
-                        key={idx}
-                        href={`/resources/${item.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                        className="text-[12.5px] text-gray-700 hover:text-red-700 transition-colors leading-snug py-0.5 tracking-normal hover:underline"
-                        onClick={() => {
-                          setHoverTrigger(false);
-                          setHoverMenu(false);
-                        }}
-                      >
-                        {item}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-[14px] font-bold text-[#0066cc] mb-4 border-b pb-2 tracking-wide uppercase">
-                    NEP 2020
-                  </h3>
-                  <div className="flex flex-col gap-2">
-                    {/* Code Of Coduct spelled exactly as in screenshot */}
-                    <a
-                      href="/code-of-conduct"
-                      className="text-[12.5px] text-gray-700 hover:text-red-700 transition-colors leading-snug py-0.5 tracking-normal hover:underline"
-                      onClick={() => {
-                        setHoverTrigger(false);
-                        setHoverMenu(false);
-                      }}
-                    >
-                      Code Of Coduct
-                    </a>
-                  </div>
-                </div>
+              <div className="flex items-center gap-3">
+                <span className="font-bold text-gray-900 uppercase tracking-wider">NEP 2020:</span>
+                <a
+                  href="/code-of-conduct"
+                  className="text-gray-600 hover:text-red-700 hover:underline transition-colors font-semibold"
+                  onClick={() => {
+                    setHoverTrigger(false);
+                    setHoverMenu(false);
+                  }}
+                >
+                  Code Of Coduct
+                </a>
               </div>
             </div>
+
           </div>
         )}
       </div>
