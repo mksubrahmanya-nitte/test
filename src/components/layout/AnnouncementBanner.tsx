@@ -27,8 +27,12 @@ export default function AnnouncementBanner() {
           <a href="#collaborations" className="hover:text-gray-800 transition-colors">Collaborations</a>
           <a href="#discover" className="hover:text-gray-800 transition-colors">Discover Us</a>
           <a href="#media" className="hover:text-gray-800 transition-colors">Media</a>
-          <a href="#career" className="hover:text-gray-800 transition-colors">Career</a>
-          <a href="#contact" className="hover:text-gray-800 transition-colors">Contact Us</a>
+          {/* ??$$$ newer code */}
+          {/* <a href="#career" className="hover:text-gray-800 transition-colors">Career</a> */}
+          <a href="/career.html" className="hover:text-gray-800 transition-colors">Career</a>
+          {/* ??$$$ newer code */}
+          {/* <a href="#contact" className="hover:text-gray-800 transition-colors">Contact Us</a> */}
+          <a href="/contact-us.html" className="hover:text-gray-800 transition-colors">Contact Us</a>
         </nav>
         <div className="flex items-center gap-3">
           <a

@@ -241,11 +241,16 @@ const navLinks = [
   { label: "Collaborations",   href: "#collaborations" },
   { label: "Discover Us",      href: "#discover" },
   { label: "Media",            href: "#" },
-  { label: "Career",           href: "#" },
-  { label: "Contact Us",       href: "#contact" },
+  // ??$$$ newer code
+  // { label: "Career",           href: "#" },
+  { label: "Career",           href: "/career.html" },
+  // ??$$$ newer code
+  // { label: "Contact Us",       href: "#contact" },
+  { label: "Contact Us",       href: "/contact-us.html" },
 ];
 
 // ??$$$ newer code
+/*
 const schoolsData = [
   {
     name: "School of Management",
@@ -340,6 +345,101 @@ const schoolsData = [
     ]
   }
 ];
+*/
+
+// ??$$$ newer code
+const megaMenuData = [
+  {
+    category: "Undergraduate Programmes",
+    items: [
+      { name: "BBA | BBA (Hons)", href: "/bba" },
+      { name: "iMBA", href: "/imba" },
+      { name: "iMBA - Aviation, Hospitality & Travel Management", href: "/ibbambaaht" },
+      { name: "iMBA - International Trade & Finance", href: "/ibbamba" },
+      { name: "BBA (Hons) - International Trade & Finance", href: "/bba-hons-itrade-finance" },
+      { name: "B.Com | B.Com (Hons)", href: "/bcom" },
+      { name: "B.Com (Hons) with ACCA", href: "/bcom-hons-acca" },
+      { name: "BCA | BCA (Hons)", href: "/bca" },
+      { name: "iMCA", href: "/imca" },
+      { name: "iMSc (IT)", href: "/imsc-it" },
+      { name: "iMSc (IT-Specialization)", href: "/imsc-it" },
+      {
+        name: "B.Sc. / B.Sc. (Hons) / iMSc",
+        hasSubMenu: true,
+        subMenu: [
+          { name: "Forensic Science & Technology", href: "/bsc-hons-imsc-forensic-science" },
+          { name: "Cyber Security & Digital Forensics", href: "/bsc-hons-imsc-cyber-digital-forensic" },
+          { name: "Quantum Computing", href: "/bsc-hons-imsc-quantum-computing" },
+          { name: "Mathematics & Computing", href: "/bsc-hons-imsc-mathematics-computing" },
+          { name: "Clinical Embryology & Reproductive Biology", href: "/bsc-hons-imsc-clinical-embryology" },
+          { name: "Food, Nutrition & Lifestyle Science", href: "/bsc-hons-imsc-food-nutrition-lifestyle" }
+        ]
+      },
+      {
+        name: "B.Tech Programs",
+        hasSubMenu: true,
+        subMenu: [
+          { name: "Computer Science & Engineering", href: "/b-tech" },
+          { name: "Information Technology", href: "/b-tech-it" },
+          { name: "Artificial Intelligence & Data Science", href: "/btech-data-science" },
+          { name: "Artificial Intelligence & Machine Learning", href: "/btech-artificial-intelligence" },
+          { name: "Computer Engineering", href: "/btech-computer-engineering" },
+          { name: "CSE [AI]", href: "/btech-cse-ai" },
+          { name: "CSE [AI & ML]", href: "/btech-cse-ai-ml" },
+          { name: "CSE [Big Data Analytics]", href: "/btech-cse-big-data" }
+        ]
+      },
+      { name: "LL.B.", href: "/llb" }
+    ]
+  },
+  {
+    category: "Postgraduate Programmes",
+    items: [
+      { name: "MBA", href: "/mba" },
+      { name: "Masters in International Trade & Finance", href: "/mba-international-trade-finance" },
+      { name: "Masters in Aviation, Hospitality & Travel Management", href: "/mahtm" },
+      { name: "M.Com (Hons) - International Accounting & Taxation", href: "/mcom" },
+      { name: "MCA", href: "/mca" },
+      { name: "MCA - AI & Full Stack Development", href: "/mca" },
+      { name: "MSc (IT-Specialization)", href: "#" },
+      {
+        name: "MSc",
+        hasSubMenu: true,
+        subMenu: [
+          { name: "Cyber Security & Digital Forensics", href: "/msc-cyber" },
+          { name: "Forensic Science & Technology", href: "/msc-forensic" },
+          { name: "Clinical Embryology & ART", href: "/msc-clinic" }
+        ]
+      },
+      { name: "LL.M.", href: "#" }
+    ]
+  },
+  {
+    category: "Doctoral Programmes (Ph.D)",
+    items: [
+      { name: "Commerce", href: "/doctoral-programmes" },
+      { name: "Management", href: "/doctoral-programmes" },
+      { name: "Computing", href: "/doctoral-programmes" },
+      { name: "Interdisciplinary", href: "/doctoral-programmes" },
+      { name: "Law", href: "/doctoral-programmes" }
+    ]
+  },
+  {
+    category: "Certificate Courses",
+    items: [
+      { name: "Metaverse", href: "/metaverse" },
+      { name: "Data Science, AI-ML", href: "/data-science-ai-ml" },
+      { name: "Mobile Applications", href: "/mobile-applications" },
+      { name: "Blockchain", href: "/blockchain" },
+      { name: "Digital Marketing", href: "/digital-marketing" },
+      { name: "Cyber Security", href: "/cyber-security" },
+      { name: "Robotic Process Automation", href: "/robotic-process-automation" },
+      { name: "Industrial IoT", href: "/industrial-iot" },
+      { name: "Full Stack Architect", href: "/full-stack-architect" },
+      { name: "Azure DevOps", href: "/azure-devops" }
+    ]
+  }
+];
 
 const resourceItems = [
   "MBA & MCA JGET Question Bank",
@@ -387,6 +487,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
   const [mobileSchoolAccordion, setMobileSchoolAccordion] = useState<string | null>(null);
+  const [mobileSubAccordion, setMobileSubAccordion] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -662,31 +763,65 @@ export default function Navbar() {
 
         {/* ── HIGH FIDELITY PROGRAMMES MEGA MENU ── */}
         {programmesOpen && (
-          /* ??$$$ newer code — fixed positioning: centered instead of left-[-200px] overflow */
+          /* ??$$$ newer code — custom centered container with overflow-visible to support flyouts */
           <div
-            className="absolute top-[70px] left-1/2 -translate-x-1/2 bg-white border border-gray-200 shadow-2xl rounded-lg p-8 w-[1140px] max-w-[95vw] max-h-[80vh] overflow-y-auto mega-menu-container animate-fade-in-down"
+            className="absolute top-[70px] left-1/2 -translate-x-1/2 bg-white border border-gray-200 shadow-2xl rounded-lg p-8 w-[1140px] max-w-[95vw] overflow-visible mega-menu-container animate-fade-in-down"
             style={{ zIndex: 90 }}
             onMouseEnter={() => setHoverMenu(true)}
             onMouseLeave={() => setHoverMenu(false)}
           >
             {/* Main Schools Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8 border-b border-gray-100 pb-8">
-              {schoolsData.map((school) => (
-                <div key={school.name} className="flex flex-col gap-2">
+              {megaMenuData.map((col) => (
+                <div key={col.category} className="flex flex-col gap-2 relative">
                   <h3 className="text-[13px] font-bold text-[#0066cc] border-b pb-2 tracking-wide uppercase">
-                    {school.name}
+                    {col.category}
                   </h3>
                   <div className="flex flex-col gap-1.5 mt-1">
-                    {school.courses.map((course, idx) => (
-                      course.href === '#' ? (
-                        <span key={idx} className="text-[12px] text-gray-400 cursor-default select-none font-medium">
+                    {col.items.map((course, idx) => {
+                      if (course.hasSubMenu) {
+                        return (
+                          <div key={idx} className="relative group/sub flex flex-col">
+                            <button
+                              className="flex items-center justify-between w-full text-[12px] text-gray-700 hover:text-red-700 font-medium py-1.5 transition-colors text-left"
+                            >
+                              <span>{course.name}</span>
+                              <span className="text-[10px] text-gray-400 font-bold ml-1.5">▸</span>
+                            </button>
+                            {/* Flyout nested sub-menu */}
+                            <div 
+                              className="absolute left-[95%] top-0 bg-white border border-gray-200 shadow-2xl rounded-lg p-4 w-72 flex flex-col gap-2 z-[100] hidden group-hover/sub:flex animate-fade-in-down ml-1"
+                              style={{ filter: "drop-shadow(0 10px 15px rgba(0,0,0,0.1))" }}
+                            >
+                              {course.subMenu?.map((sub, subIdx) => (
+                                <Link
+                                  key={subIdx}
+                                  /* ??$$$ newer code — Cast sub.href as string to satisfy compiler */
+                                  href={sub.href as string}
+                                  className="text-[12px] text-gray-700 hover:text-red-700 transition-colors leading-snug tracking-normal hover:underline font-medium"
+                                  onClick={() => {
+                                    setHoverTrigger(false);
+                                    setHoverMenu(false);
+                                  }}
+                                >
+                                  {sub.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      }
+
+                      return course.href === '#' ? (
+                        <span key={idx} className="text-[12px] text-gray-400 cursor-default select-none font-medium py-1.5">
                           {course.name}
                         </span>
                       ) : (
                         <Link
                           key={idx}
-                          href={course.href}
-                          className="text-[12px] text-gray-700 hover:text-red-700 transition-colors leading-snug tracking-normal hover:underline font-medium animate-fade-in-down"
+                          /* ??$$$ newer code — Cast course.href as string to satisfy compiler */
+                          href={course.href as string}
+                          className="text-[12px] text-gray-700 hover:text-red-700 transition-colors leading-snug tracking-normal hover:underline font-medium py-1.5"
                           onClick={() => {
                             setHoverTrigger(false);
                             setHoverMenu(false);
@@ -694,8 +829,8 @@ export default function Navbar() {
                         >
                           {course.name}
                         </Link>
-                      )
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               ))}
@@ -770,31 +905,61 @@ export default function Navbar() {
               </button>
               {mobileAccordion === 'programmes' && (
                 <div className="bg-gray-50 border-y border-gray-100">
-                  {schoolsData.map((school) => (
-                    <div key={school.name}>
+                  {megaMenuData.map((col) => (
+                    <div key={col.category}>
                       <button
                         className="flex items-center justify-between w-full px-7 py-3 text-[12.5px] font-bold text-[#0066cc] hover:bg-gray-100 transition-colors text-left cursor-pointer"
-                        onClick={() => setMobileSchoolAccordion(mobileSchoolAccordion === school.name ? null : school.name)}
+                        onClick={() => setMobileSchoolAccordion(mobileSchoolAccordion === col.category ? null : col.category)}
                       >
-                        {school.name}
-                        <span className={`text-gray-400 text-[10px] transition-transform duration-200 ${mobileSchoolAccordion === school.name ? 'rotate-180' : ''}`}>▾</span>
+                        {col.category}
+                        <span className={`text-gray-400 text-[10px] transition-transform duration-200 ${mobileSchoolAccordion === col.category ? 'rotate-180' : ''}`}>▾</span>
                       </button>
-                      {mobileSchoolAccordion === school.name && (
+                      {mobileSchoolAccordion === col.category && (
                         <div className="bg-white border-t border-gray-50">
-                          {school.courses.map((course, idx) => (
-                            course.href === '#' ? (
+                          {col.items.map((course, idx) => {
+                            if (course.hasSubMenu) {
+                              return (
+                                <div key={idx}>
+                                  <button
+                                    className="flex items-center justify-between w-full px-10 py-2.5 text-[12px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors text-left cursor-pointer"
+                                    onClick={() => setMobileSubAccordion(mobileSubAccordion === course.name ? null : course.name)}
+                                  >
+                                    {course.name}
+                                    <span className={`text-gray-400 text-[10px] transition-transform duration-200 ${mobileSubAccordion === course.name ? 'rotate-180' : ''}`}>▾</span>
+                                  </button>
+                                  {mobileSubAccordion === course.name && (
+                                    <div className="bg-gray-50 border-t border-gray-100">
+                                      {course.subMenu?.map((sub, subIdx) => (
+                                        <Link
+                                          key={subIdx}
+                                          /* ??$$$ newer code — Cast sub.href as string to satisfy compiler */
+                                          href={sub.href as string}
+                                          className="block px-14 py-2 text-[12px] text-gray-600 hover:text-red-700 transition-colors"
+                                          onClick={() => setMobileOpen(false)}
+                                        >
+                                          {sub.name}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  )}
+                                </div>
+                              );
+                            }
+
+                            return course.href === '#' ? (
                               <span key={idx} className="block px-10 py-2 text-[12px] text-gray-400">{course.name}</span>
                             ) : (
                               <Link
                                 key={idx}
-                                href={course.href}
+                                /* ??$$$ newer code — Cast course.href as string to satisfy compiler */
+                                href={course.href as string}
                                 className="block px-10 py-2 text-[12px] text-gray-700 hover:text-red-700 hover:bg-red-50 transition-colors"
                                 onClick={() => setMobileOpen(false)}
                               >
                                 {course.name}
                               </Link>
-                            )
-                          ))}
+                            );
+                          })}
                         </div>
                       )}
                     </div>
@@ -853,8 +1018,12 @@ export default function Navbar() {
                 </div>
               )}
 
-              <Link href="#" className="px-5 py-3.5 text-[14px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors" onClick={() => setMobileOpen(false)}>Career</Link>
-              <Link href="#contact" className="px-5 py-3.5 text-[14px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors" onClick={() => setMobileOpen(false)}>Contact Us</Link>
+              {/* ??$$$ newer code */}
+              {/* <Link href="#" className="px-5 py-3.5 text-[14px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors" onClick={() => setMobileOpen(false)}>Career</Link> */}
+              <Link href="/career.html" className="px-5 py-3.5 text-[14px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors" onClick={() => setMobileOpen(false)}>Career</Link>
+              {/* ??$$$ newer code */}
+              {/* <Link href="#contact" className="px-5 py-3.5 text-[14px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors" onClick={() => setMobileOpen(false)}>Contact Us</Link> */}
+              <Link href="/contact-us.html" className="px-5 py-3.5 text-[14px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors" onClick={() => setMobileOpen(false)}>Contact Us</Link>
             </nav>
 
             {/* Drawer bottom CTA */}

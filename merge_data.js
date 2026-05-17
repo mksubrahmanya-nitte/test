@@ -96,17 +96,17 @@ const BBA_CUSTOM_OBJECT = `
 // Build the new programmes object literal
 let newObjectsStr = "";
 for (const slug in scrapedData) {
-  if (slug === 'bba') continue;
-  newObjectsStr += "  '" + slug + "': " + JSON.stringify(scrapedData[slug], null, 4) + ",\\n";
+  if (slug === "bba") continue;
+  newObjectsStr += "  '" + slug + "': " + JSON.stringify(scrapedData[slug], null, 4) + ",\n";
 }
 
 const header = currentTs.split('export const programmes: Record<string, Programme> = {')[0];
 const aliasesStr = currentTs.split('export const programmeAliases: Record<string, string> = ')[1];
 
-const newFileContent = header + "export const programmes: Record<string, Programme> = {\\n" +
-BBA_CUSTOM_OBJECT + ",\\n" +
+const newFileContent = header + "export const programmes: Record<string, Programme> = {\n" +
+BBA_CUSTOM_OBJECT + ",\n" +
 newObjectsStr +
-"};\\n\\nexport const programmeAliases: Record<string, string> = " + aliasesStr;
+"};\n\nexport const programmeAliases: Record<string, string> = " + aliasesStr;
 
 fs.writeFileSync('./src/data/programmes.ts', newFileContent);
 console.log("Merged scraped data into src/data/programmes.ts");
