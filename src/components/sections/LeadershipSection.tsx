@@ -1,3 +1,5 @@
+/*
+// Old LeadershipSection code commented out:
 'use client';
 
 import React, { useState } from 'react';
@@ -65,7 +67,6 @@ export default function LeadershipSection() {
         </div>
       </div>
 
-      {/* Modal */}
       <AnimatePresence>
         {selectedLeader && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
@@ -101,6 +102,69 @@ export default function LeadershipSection() {
           </div>
         )}
       </AnimatePresence>
+    </section>
+  );
+}
+*/
+
+// ??$$$ newer code
+import Image from "next/image";
+
+const leaders = [
+  {
+    name: "M.P. Chandran",
+    title: "President, JG University",
+    image: "/images/m-p-chandran.jpg",
+    layout: "text-left", // text left, image right
+    bio: `M.P. Chandran is a postgraduate in commerce with more than 30 years of experience in service and learnt best practices in public and private sectors in India and abroad. He is the Cooperation of the Education of the Confederation of Commerce and Industry. He is also the Chairman of CSR, JGG and Director, Veda Publications, a post Graduate College, and JG University.`,
+  },
+  {
+    name: "Dr. CA Achyut Dani",
+    title: "Director General & President, JG University",
+    image: "/images/achyut-dani.jpg",
+    layout: "image-left", // image left, text right
+    bio: `Dr. CA Achyut Dani has more than 21 years of experience and expertise in academics and industry. He holds a membership of management, an entrepreneur and is the CEO / founder of Ahmedabad. His teams bring excellence and his expertise in academics. JG Founders Group includes JG University, Sarla Group, Gujarat University, National Academy of Direct Taxes (NADT) Ahmedabad, Taxman Training Academy, JG - Confederation of Entrepreneurs (Entrepreneurs Hub) and Director of the Indian Chamber of Commerce and Industry. He is on the Governing Council of the Indian Chamber of Commerce and Industry, as well as the Commercial Board of CSR, JGG and Director. Maya Publications, a Joint Professional book from JG Group, South from America, IIT and CMI. He has published several articles through India in educational settings that he has developed are featured in CMA. He has achieved Numerous Fellowships and his Faculty Members are honoured by the Gujarat Excellence Awards and the Ahmedabad Excellence Awards Institute on Finance, Reporting, Cost Accounting, and Taxation.`,
+  },
+];
+
+export default function LeadershipSection() {
+  return (
+    <section className="py-12 px-4 max-w-7xl mx-auto" id="discover">
+      <h2 className="text-2xl font-bold text-gray-900 mb-10 border-b-2 border-gray-100 pb-4">Our Leaders</h2>
+      <div className="flex flex-col gap-10">
+        {leaders.map((leader) => (
+          <div
+            key={leader.name}
+            className={`flex flex-col md:flex-row gap-8 items-start ${
+              leader.layout === "image-left" ? "md:flex-row-reverse" : ""
+            }`}
+          >
+            {/* Text side */}
+            <div className="flex-1">
+              <p className="font-semibold text-lg text-gray-900">{leader.name}</p>
+              <p className="text-sm text-gray-500 mb-4">{leader.title}</p>
+              <p className="text-sm text-gray-600 leading-relaxed mb-5">{leader.bio}</p>
+              <button
+                className="px-5 py-2 rounded text-white text-sm font-semibold transition-opacity hover:opacity-90 shadow-md"
+                style={{ backgroundColor: "#7c3aed" }}
+              >
+                Read Full Profile →
+              </button>
+            </div>
+            {/* Image side */}
+            <div className="flex-shrink-0 w-full md:w-64">
+              <div className="relative h-64 rounded-xl overflow-hidden shadow-md">
+                <Image
+                  src={leader.image}
+                  alt={leader.name}
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

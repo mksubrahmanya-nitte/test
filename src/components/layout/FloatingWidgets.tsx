@@ -1,25 +1,31 @@
 'use client';
 
 import React from 'react';
-import { Users, Camera, Hash, Briefcase, Play, MessageCircle, Phone, MessageSquare } from 'lucide-react';
+import { Users, Camera, Hash, Briefcase, Play, MessageCircle, Phone } from 'lucide-react';
 
+/* ??$$$ newer code - using transform:rotate for clean horizontal text rendering */
 export default function FloatingWidgets() {
+  /* Shared styles for the vertical pill tabs */
+  const pillBase = "fixed z-50 bg-[#b31b1b] text-white text-[11px] sm:text-xs font-semibold tracking-wider whitespace-nowrap rounded-full shadow-lg hover:bg-[#8f1515] transition-colors cursor-pointer";
+
   return (
     <>
-      {/* LEFT SIDE WIDGETS */}
-      <div className="fixed left-0 top-[30%] transform -translate-y-1/2 z-50 flex flex-col items-start gap-4">
-        {/* Psychometric Test Tab */}
-        <a 
-          href="#" 
-          className="bg-[#b31b1b] text-white font-medium text-sm tracking-wide rounded-r-xl py-6 px-1.5 shadow-md flex items-center justify-center hover:bg-[#8f1515] transition-colors"
-          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-        >
-          Free Psychometric Test
-        </a>
-      </div>
+      {/* LEFT - Free Psychometric Test */}
+      <a
+        href="#"
+        className={pillBase}
+        style={{
+          top: '35%',
+          left: '-48px',
+          padding: '7px 16px',
+          transform: 'rotate(-90deg)',
+        }}
+      >
+        Free Psychometric Test
+      </a>
 
-      <div className="fixed left-0 top-[65%] transform -translate-y-1/2 z-50">
-        {/* Social Icons Pill */}
+      {/* Social Icons */}
+      <div className="fixed left-0 top-[65%] -translate-y-1/2 z-50">
         <div className="bg-white rounded-r-full py-3 px-2 shadow-lg flex flex-col gap-3 border border-gray-100 border-l-0">
           <a href="#" className="w-8 h-8 rounded-full bg-[#3b5998] text-white flex items-center justify-center hover:scale-110 transition-transform">
             <Users size={16} fill="currentColor" />
@@ -42,28 +48,36 @@ export default function FloatingWidgets() {
         </div>
       </div>
 
+      {/* RIGHT - Apply Now */}
+      <a
+        href="/admission-open"
+        className={pillBase}
+        style={{
+          top: '35%',
+          right: '-18px',
+          padding: '7px 16px',
+          transform: 'rotate(90deg)',
+        }}
+      >
+        Apply Now
+      </a>
 
-      {/* RIGHT SIDE WIDGETS */}
-      <div className="fixed right-0 top-[40%] transform -translate-y-1/2 z-50 flex flex-col items-end gap-6">
-        {/* Apply/Enquire Tabs */}
-        <a 
-          href="/admission-open" 
-          className="bg-[#b31b1b] text-white font-medium text-sm tracking-wide rounded-l-xl py-6 px-1.5 shadow-md flex items-center justify-center hover:bg-[#8f1515] transition-colors"
-          style={{ writingMode: 'vertical-rl' }}
-        >
-          Apply Now
-        </a>
-        <a 
-          href="/admission-open" 
-          className="bg-[#b31b1b] text-white font-medium text-sm tracking-wide rounded-l-xl py-6 px-1.5 shadow-md flex items-center justify-center hover:bg-[#8f1515] transition-colors"
-          style={{ writingMode: 'vertical-rl' }}
-        >
-          Enquire Now
-        </a>
-      </div>
+      {/* RIGHT - Enquire Now */}
+      <a
+        href="/admission-open"
+        className={pillBase}
+        style={{
+          top: '50%',
+          right: '-24px',
+          padding: '7px 16px',
+          transform: 'rotate(90deg)',
+        }}
+      >
+        Enquire Now
+      </a>
 
+      {/* Bottom right action buttons */}
       <div className="fixed right-4 bottom-10 z-50 flex flex-col items-end gap-4">
-        {/* Action Icons Stack */}
         <a href="#" className="w-12 h-12 rounded-full bg-[#00a651] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
           <Phone size={20} fill="currentColor" />
         </a>

@@ -1,3 +1,5 @@
+/*
+// Old FacultySection code commented out:
 'use client';
 
 import React, { useState } from 'react';
@@ -54,5 +56,81 @@ export default function FacultySection() {
         </div>
       </div>
     </section>
+  );
+}
+*/
+
+// ??$$$ newer code
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+
+const faculty = [
+  { name: "Dr. Priyanka Mehta", role: "Dept. of Management", image: "/images/megha-1.jpg" },
+  { name: "Dr. Namita Patel",   role: "School of Management", image: "/images/namika-1.png" },
+  { name: "Dr. Ritu Shah",      role: "Dept. of Commerce",    image: "/images/aarti-1.jpg" },
+  { name: "Dr. Rajesh Kumar",   role: "Dept. of Computing",   image: "/images/jigar-1.jpg" },
+];
+
+export default function FacultySection() {
+  const [center, setCenter] = useState(1);
+  const len = faculty.length;
+
+  const left  = (center - 1 + len) % len;
+  const right = (center + 1) % len;
+
+  return (
+    <section className="py-12 px-4 max-w-7xl mx-auto" id="faculty">
+      <h2 className="text-2xl font-bold text-gray-900 mb-10 border-b-2 border-gray-100 pb-4">Faculty Members</h2>
+      <div className="flex items-center justify-center gap-6">
+        {/* Left arrow */}
+        <button
+          onClick={() => setCenter((c) => (c - 1 + len) % len)}
+          className="w-10 h-10 rounded-full bg-blue-500 hover:bg-blue-600 text-white flex items-center justify-center text-lg flex-shrink-0 font-bold"
+        >
+          ‹
+        </button>
+
+        {/* Cards */}
+        <div className="flex items-center gap-4">
+          {/* Left card */}
+          <div className="w-40 opacity-70 scale-90 transition-all duration-300 hidden sm:block">
+            <FacultyCard member={faculty[left]} active={false} />
+          </div>
+          {/* Center card */}
+          <div className="w-52 scale-105 transition-all duration-300">
+            <FacultyCard member={faculty[center]} active={true} />
+          </div>
+          {/* Right card */}
+          <div className="w-40 opacity-70 scale-90 transition-all duration-300 hidden sm:block">
+            <FacultyCard member={faculty[right]} active={false} />
+          </div>
+        </div>
+
+        {/* Right arrow */}
+        <button
+          onClick={() => setCenter((c) => (c + 1) % len)}
+          className="w-10 h-10 rounded-full bg-blue-500 hover:bg-blue-600 text-white flex items-center justify-center text-lg flex-shrink-0 font-bold"
+        >
+          ›
+        </button>
+      </div>
+    </section>
+  );
+}
+
+function FacultyCard({ member, active }: { member: typeof faculty[0]; active: boolean }) {
+  return (
+    <div className={`rounded-xl overflow-hidden border-2 transition-all ${active ? "border-red-600" : "border-transparent"}`}>
+      <div className="relative h-56 w-full">
+        <Image src={member.image} alt={member.name} fill className="object-cover object-top" />
+      </div>
+      {active && (
+        <div className="bg-red-600 text-white text-center py-2 px-3">
+          <p className="font-bold text-sm">{member.name}</p>
+          <p className="text-xs opacity-80">{member.role}</p>
+        </div>
+      )}
+    </div>
   );
 }
