@@ -662,8 +662,9 @@ export default function Navbar() {
 
         {/* ── HIGH FIDELITY PROGRAMMES MEGA MENU ── */}
         {programmesOpen && (
-          <div 
-            className="absolute top-[70px] bg-white border border-gray-200 shadow-2xl rounded-lg p-8 w-[1140px] max-w-[95vw] left-[-200px] xl:left-[-150px] max-h-[80vh] overflow-y-auto mega-menu-container animate-fade-in-down"
+          /* ??$$$ newer code — fixed positioning: centered instead of left-[-200px] overflow */
+          <div
+            className="absolute top-[70px] left-1/2 -translate-x-1/2 bg-white border border-gray-200 shadow-2xl rounded-lg p-8 w-[1140px] max-w-[95vw] max-h-[80vh] overflow-y-auto mega-menu-container animate-fade-in-down"
             style={{ zIndex: 90 }}
             onMouseEnter={() => setHoverMenu(true)}
             onMouseLeave={() => setHoverMenu(false)}
